@@ -1,0 +1,829 @@
+Logo Petrvs
+PETRVS
+Home
+Planos de Trabalho
+Detalhamentos da Execução
+Registros De Execução
+Problemas de lotação
+CGTE-CEFOR (1627042) 
+
+Detalhamentos da Execução
+ Lista
+ Quadro
+Agrupar por Entrega
+
+Agrupar por Unidade
+
+Minhas
+
+Usuário
+1627042 - Elton Vinicius Silva
+Plano de trabalho
+Atual
+
+Unidade
+Sub.
+
+Plano de Entrega
+Entrega do Plano de Entrega
+#ID
+Nº Processo (Sei)
+Status
+Etiquetas
+Arq.
+
+Tipo de Detalhamento da Execução
+Tipo de Processo
+Data
+Início
+
+dd/mm/aaaa --:--
+Fim
+
+dd/mm/aaaa --:--
+#ID/Tipo de Detalhamento da Execução/ Entrega
+Descrição	
+Etiquetas	
+Plano de trabalho	
+Un./Agente P. Responsável
+Demandante	
+Tempos Distribuição
+PrazoEntrega	
+Progresso
+Checklist	
+nº Processo/Status
+Comentários	
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividade sem previsão - extraordinárias
+118878
+Atividade sem previsão - extraordinárias
+15/12 - Fiz avaliação das artes enviadas pela Andreia da atividade de nova ID de comunicação do Cefor. Dialoguei diretamente com ela via áudio no whatsapp
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+118906
+Atividade sem previsão - extraordinárias
+ATUALIZAÇÃO DO SITE DO CEFOR - 23/12 - Monia me pediu para incluir os banner de natal de ano novo no site do cefor. Demanda que me solicitou um tempo de busca pois a muitos anos não fazia. 26/12 - Monia pediu para retirar so site os banner vencidos. Foram no total 2 banners. PRECISEI PRIORIZAR ESTA ATIVIDADE POR CONTA DA EMERGÊNCIA DO PRAZO PARA REALIZA-LA . REDUZIU ENTÃO O TEMPO DESTINADO PARA ATUALIZAÇÃO DOS ARTIGOS NA BASE DE CONHECIMENTO (ATIVIDADE: Informação em sistema institucional atualizada).
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+120964
+Atividade sem previsão - extraordinárias
+29/12 e 30/12 fiz a prestação de conta do teletrabalho DE DEZEMBRO no Petrvs. antecipei pois estaria de férias em janeiro. POR CONTA DAS MINHAS FÉRIAS EM JANEIRO. E DA NECESSIDADE DE PRESTAÇÃO DE CONTA DO TRABALHO, ESTA AÇÃO REDUZIU O TEMPO DESTINADO PARA ATUALIZAÇÃO DOS ARTIGOS NA BASE DE CONHECIMENTO (ATIVIDADE: Informação em sistema institucional atualizada).
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+118874
+Atividade sem previsão - extraordinárias
+05/12 - Fechamento do SIGRH de novembro
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+120963
+Atividade sem previsão - extraordinárias
+26/12 e 30/12 - Fechamento do SIGRH de dezembro. antecipei pois estaria de férias na janeiro. POR CONTA DAS MINHAS FÉRIAS EM JANEIRO. E DA NECESSIDADE DE PRESTAÇÃO DE CONTA DO TRABALHO, ESTA AÇÃO REDUZIU O TEMPO DESTINADO PARA ATUALIZAÇÃO DOS ARTIGOS NA BASE DE CONHECIMENTO (ATIVIDADE: Informação em sistema institucional atualizada).
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+118877
+Atividade sem previsão - extraordinárias
+15/12 - Fiz a atualização do sistema de ponto até o presente dia. 18/12 - Fiz nova atualização 31/12 - finalizei
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+118873
+Atividade sem previsão - extraordinárias
+Criar Identidade Visual do Curso de Pós-Graduação Especialização em Docência na Educação a Distância 02/12 - Me reuni com a mariella para alinhar o desejo e necessidade da ID visual do curso. 05/12 - InicIei a busca por referência, olhando outras imagens com objetivos semelhantes. 09/12 - Iniciei a criação de uma identidade. mas ainda sem uma ideia muito delimitada. 10/12 a 26/12 - Me reuni 2 vezes com a Andreia para dialogarmos. Montamos uma linha de proposta. Fiz algumas construções. Estou com uma proposta de caminho que irei novamente dialogar com a andreia, assim que possivel. Um teste da proposta está disponível: https://ava3.cefor.ifes.edu.br/course/view.php?id=3103 ESTA ATIVIDADE ME DEMANDOU UM TEMPO MUITO SUPERIOR AO NORMAL PREVISTO. PRECISEI PRIORIZAR ELA POR CONTA DA NECESSIDADE DE TEMPO E DAS MINHAS FÉRIAS EM JANEIRO. REDUZIU ENTÃO O TEMPO DESTINADO PARA ATUALIZAÇÃO DOS ARTIGOS NA BASE DE CONHECIMENTO (ATIVIDADE: Informação em sistema institucional atualizada).
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+118875
+Atividade sem previsão - extraordinárias
+09 e 10/12 fiz a prestação de conta do teletrabalho DE NOVEMBRO no Petrvs.
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+120965
+Atividade sem previsão - extraordinárias
+Criar arte divulgação PS Professor Substituto - cefor 30/12- Recebi do tiago esta demanda e ao longo deste dia de trabalho foi dialogando com ele sobre as informações que eu precisava para realizar. Ela conseguiu todos os dados e combinei de fazer e enviar a arte no dia 02/01.
+Curtir
+01/12/2025
+até 31/12/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/12/2025 00:00
+31/12/2025 00:00
+31/12/2025 00:00
+100%
+Concluído
+Comentários
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividades de gestão do setor no lugar da Rutinelli
+130484
+Atividades de gestão do setor no lugar da Rutinelli
+Foram realizadas reuniões estratégicas sobre o projeto Ifes Ads com Saymon e Elton, com discussão de ações futuras, além de diálogo com Elton acerca da Semana Pedagógica da CGE. Incluem-se também reuniões, alinhamentos internos diversos e acompanhamento de demandas institucionais cotidianas, bem como checagem frequente de e-mails institucionais e articulações administrativas não diretamente vinculadas a entregas específicas. Foram realizadas diversas atividades de gestão do setor, incluindo homologação dos pontos eletrônicos, articulações com os servidores acerca do registro de ponto, conferência, encaminhamento e resolução integral dos e-mails da CGTE (com caixa zerada), organização e assinatura das folhas de ponto das celetistas (Carol e Raquel) e do estagiário (Matheus), além do alinhamento com Tiago sobre o período em que esteve na coordenação. Houve também entendimento e retorno sobre o sistema Petrvs (PGD) para inserção e atualização de planos de trabalho, reunião com Aline Freitas para tratar da organização burocrática do setor, solicitação e encaminhamento de portarias de substituição (para Elton, Aline e Neia), ajustes no PGD para assinatura dos planos de janeiro, inserção do plano de entregas dos próximos três meses e organização de planos anteriores que estavam pendentes por questões de acesso ao sistema. Inclui-se ainda a condução de formulário e processo de licença para capacitação da servidora Eliana, bem como a organização do relatório de gestão 2025, com solicitação de informações à equipe, distribuição de tarefas e alinhamento para preenchimento dos dados do setor.
+Curtir
+01/01/2026
+até 31/01/2026
+CGTE-CEFOR
+Marcos
+Marcos
+01/01/2026 00:00
+31/01/2026 00:00
+31/01/2026 00:00
+100%
+Concluído
+Comentários
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividades demandas sem previsão
+114780
+Atividades demandas sem previsão
+Artes para o V Seminário de Gestores da UAB Cefor/Ifes e III Seminário de Gestores da UnAC Cefor/Ifes 05 e 06 trabalhei numa proposta de arte padronizada para o evento. Pedi a avaliação da Andreia. 06/11 - Andreia avaliou, fez considerações, fizemos ajustes e aprovamos. Mandei para Rutinelli, ela aprovou tb. 11/11 - A arte foi enviada para Dulce, Monia e Andrômeda. Atividade finalizada e a partir deste momento o trabalho fica sob responsabilidade da Monia.
+Curtir
+01/11/2025
+até 30/11/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/11/2025 00:00
+30/11/2025 00:00
+30/11/2025 00:00
+100%
+Concluído
+Comentários
+114774
+Atividades demandas sem previsão
+Construção da Política de Autoria, Licenciamento e Uso do Conteúdo da Base de Conhecimento do Cefor 05/11 e 13/11- Contribuí com a construção da Política de Autoria, Licenciamento e Uso do Conteúdo da Base de Conhecimento do Cefor e a texto de convite aos professores Tarefa #7730
+Curtir
+01/11/2025
+até 30/11/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/11/2025 00:00
+30/11/2025 00:00
+30/11/2025 00:00
+100%
+Concluído
+Comentários
+114779
+Atividades demandas sem previsão
+Arte para Divulgação Avaliação Institucional - Cefor 10 e 11/11 - dialoguei com Marquito e Rutinelli sobre a demanda para compreender melhor e definirmos as peças. 11/11 - enviei uma proposta de arte para Rutinelli. Ela solicitou destacar mais o texto dos alunos. Fiz então uma mudança na proporção deste elemento com os demais itens...Deixando ele com maior peso visual. 13/11 - finalizei a arte enviei e-mail com as artes e as orientações.
+Curtir
+01/11/2025
+até 30/11/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/11/2025 00:00
+30/11/2025 00:00
+30/11/2025 00:00
+100%
+Concluído
+Comentários
+114793
+Atividades demandas sem previsão
+19/11 - REUNIÃO DA CGTE
+Curtir
+01/11/2025
+até 30/11/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/11/2025 00:00
+30/11/2025 00:00
+30/11/2025 00:00
+100%
+Concluído
+Comentários
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividades executadas não vinculadas a entregas.
+51957
+Atividades executadas não vinculadas a entregas.
+Revisão e diagramação do texto do Cefor que será entregue aos candidatos à Reitor(a) do Ifes.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Monia
+Monia
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 17:00
+100%
+Concluído
+Comentários
+Link para arte aberta do documento diagramado no Canva: https://www.canva.com/folder/FAFo1y9glX8
+28640
+Atividades executadas não vinculadas a entregas.
+Reunião da CGTE - Pauta: Trilha Cefor.
+Curtir
+01/12/2024
+até 28/02/2025
+CGTE-CEFOR
+Monia
+Monia
+01/01/2025 00:00
+31/01/2025 23:59
+23/01/2025 13:00
+100%
+Concluído
+Comentários
+30685
+Atividades executadas não vinculadas a entregas.
+Reuniões semanais da CGTE, às quartas-feiras, normalmente das 14h às 16 horas.
+Curtir
+01/12/2024
+até 28/02/2025
+CGTE-CEFOR
+Monia
+Monia
+01/02/2025 00:00
+28/02/2025 00:00
+28/02/2025 18:00
+100%
+Concluído
+Comentários
+38185
+Atividades executadas não vinculadas a entregas.
+Férias de 19 a 26 de março de 2025.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Monia
+Monia
+01/03/2025 00:00
+31/03/2025 23:59
+26/03/2025 18:00
+100%
+Concluído
+Comentários
+54496
+Atividades executadas não vinculadas a entregas.
+Reunião geral do Cefor com todos os servidores. Data: 28/05/2025 // Horário: 14h // Local: Auditório do Cefor
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Monia
+Monia
+01/05/2025 00:00
+31/05/2025 00:00
+28/05/2025 16:30
+100%
+Concluído
+Comentários
+9390
+Atividades executadas não vinculadas a entregas.
+Realizei a Autoavaliação Institucional, conforme solicitado pela Diretoria do Cefor.
+Curtir
+01/12/2024
+até 28/02/2025
+CGTE-CEFOR
+Monia
+Monia
+01/12/2024 00:00
+31/12/2024 23:59
+03/12/2024 14:30
+100%
+Concluído
+Comentários
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividades extraordinárias
+77375
+Atividades extraordinárias
+CRIAÇÃO DA ARTE DE DIVULGAÇÃO DA FORMAÇÃO DO NAPNE Fazer a arte de divulgação NAPNE - Práticas Pedagógicas Inclusivas na EaD para Alunos com Deficiência Auditiva 14/08 – Início da produção da arte, seguindo o modelo do evento anterior com ajustes de cores e ícones. Solicitação à Dulce dos dados de nome e foto dos(as) palestrantes (aguardo para continuidade). 20/08 – Recebimento das informações da Dulce; inclusão no material e envio para aprovação de Ruti e Dulce. Após ajustes solicitados por Ruti nos nomes, finalizei o material. Envio das artes ao CGTE por e-mail.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/08/2025 00:00
+31/08/2025 00:00
+31/08/2025 00:00
+100%
+Concluído
+Comentários
+link tarefa: https://board.cefor.ifes.edu.br/?controller=TaskViewController&action=show&task_id=7665
+76646
+Atividades extraordinárias
+13/08- Criação da arte para divulgar O EVENTO DO NEABI -
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/08/2025 00:00
+31/08/2025 00:00
+31/08/2025 00:00
+100%
+Concluído
+Comentários
+LINK ATIVIDADE: https://board.cefor.ifes.edu.br/?controller=TaskViewController&action=show&task_id=7663
+76490
+Atividades extraordinárias
+Divulgação da Lista de projetos do campus Colatina aprovados no PICIT 2025 No dia 24/06, a pedido de Luisa, organizei os dados para divulgação da lista de projetos do Campus Colatina aos alunos. Em diálogo com Luisa, optamos por criar uma arte digital no Canva para disponibilizar os dados. Também desenvolvi uma arte para post de divulgação, incluindo QR-code de acesso, e uma versão em preto e branco para impressão. Para realizar esta atividade, precisei pausar temporariamente a configuração do site da Semana de Integração.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+76603
+Atividades extraordinárias
+SUBMISSÃO DE PROJETO PARA FAPES 01/07 – Reunião da equipe de Design sobre submissão do Projeto FAPES – Universal. 02/07 – Reunião da equipe de Design definindo a proposta da base de conhecimento em versão mais moderna, com interação do usuário, IA e percursos dinâmicos; alinhamento com Mariela sobre a proposta. Saí de férias e não foi dado andamento ao projeto e nem a ubmissão
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/07/2025 00:00
+31/07/2025 23:59
+31/07/2025 23:59
+100%
+Concluído
+Comentários
+76564
+Atividades extraordinárias
+03/07/25 - AJUSTE NO PONTO SIGRH DE JUNHO
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/07/2025 00:00
+31/07/2025 23:59
+31/07/2025 23:59
+100%
+Concluído
+Comentários
+77998
+Atividades extraordinárias
+Participação no Trilha Cefor 2028 Preparação da apresentação para ser usada no contexto da webconfertência do Trilha Cefor e adequando a identidade do layout da apresentação.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/07/2025 00:00
+31/07/2025 23:59
+31/07/2025 23:59
+100%
+Concluído
+Comentários
+76491
+Atividades extraordinárias
+Palestra sobre Sala modelo e Padrões visuais - campus Colatina No dia 28/07/25 fiz uma apresentação para os servidores do campus Colatina, a pedido do NTE do campus, sobre a sala modelo e os padrões visuais. 24 e 25 de julho - Devido ao trilha Cefor e a mudança do Moodle, precisei fazer adequações na sala modelo para atualizar os tutoriais e mexer na apresentação para fazer adequações.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/07/2025 00:00
+31/07/2025 23:59
+31/07/2025 23:59
+100%
+Concluído
+Comentários
+76597
+Atividades extraordinárias
+18 e 25/06 – Participação nas reuniões para organização da Trilha CEFOR.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+76593
+Atividades extraordinárias
+05/06 (Horário: 16h30 as 18h)– Participação da live “Nova Política para EaD: Inovações, aspectos gerais e impactos” (convidados: Antônio Amorim e Daniel Ximenez).
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+76574
+Atividades extraordinárias
+02 A 06 DE JUNHO - LANÇAMENTO DAS ATIVIDADES DO PLANO DE ENTREGA DE MARÇO, ABRIL E MAIO NO PETRVS.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+76492
+Atividades extraordinárias
+Início do semestre letivo de 2025/2 - Campus Colatina Participei no dia 28/07 da reunião com os servidores do campus Colatina de abertura do semestre letivo. Tivemos ações pela manhã e no turno vespertino.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/07/2025 00:00
+31/07/2025 23:59
+31/07/2025 23:59
+100%
+Concluído
+Comentários
+76648
+Atividades extraordinárias
+25/08 - Criação do Banner para divulgar reunião
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/08/2025 00:00
+31/08/2025 00:00
+31/08/2025 00:00
+100%
+Concluído
+Comentários
+LINK TAREFA: https://board.cefor.ifes.edu.br/?controller=TaskViewController&action=show&task_id=7673
+76558
+Atividades extraordinárias
+02/06/25 - AJUSTE NO PONTO SIGRH DE MAIO.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+76569
+Atividades extraordinárias
+05/08/25 - AJUSTE NO PONTO SIGRH DE JULHO.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/08/2025 00:00
+31/08/2025 00:00
+31/08/2025 00:00
+100%
+Concluído
+Comentários
+77985
+Atividades extraordinárias
+Participação no Trilha Cefor 2028 07/08/25 - Participei da webconferência do trilha cefor apresentando dois tópicos de orientação - Sala modelo e Identidade visual da sala virtual
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/08/2025 00:00
+31/08/2025 00:00
+31/08/2025 00:00
+100%
+Concluído
+Comentários
+76489
+Atividades extraordinárias
+ARTE DIVULGAÇÃO EDITAL ALUNOS PICTI - 05/2025ARTE DIVULGAÇÃO EDITAL ALUNOS PICTI - 05/2025 Atendi à solicitação de Luisa para criação do panfleto de divulgação do edital de alunos da Iniciação Científica (PICTI – 05/2025). No dia 16/06 pedi à estagiária Pietra para iniciar a elaboração da proposta. Já em 17/06, desenvolvemos juntas a arte para divulgação no Instagram e no panfleto, seguindo a mesma identidade visual, e encaminhei as imagens para Luisa.
+Curtir
+01/06/2025
+até 31/08/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/06/2025 00:00
+30/06/2025 23:59
+30/06/2025 23:59
+100%
+Concluído
+Comentários
+Unidade: CGTE-CEFOR
+Entrega:
+Descrição dos trabalhos: Atividades extraordinárias recebidas
+51562
+Atividades extraordinárias recebidas
+No dia 06/03/25 recebi o pedido do Fabrício e no mesmo dia fiz o envio do link para acesso as artes dos 30 anos do Ifes campus Colatina.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/03/2025 00:00
+31/03/2025 23:59
+31/03/2025 23:59
+100%
+Concluído
+Comentários
+51758
+Atividades extraordinárias recebidas
+. 13/05 - Participei da reunião para tratar da atividade se construção da página no site do Cefor para centralizar as ações de IA, juntamente com a Monia e Ruti.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 00:00
+100%
+Concluído
+Comentários
+51754
+Atividades extraordinárias recebidas
+12/05/25 - Me reuni novamente com a Dulce e a Dalila para testamos a webconferência e alinharmos os procedimento para o dia do evento.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 00:00
+100%
+Concluído
+Comentários
+94846
+Atividades extraordinárias recebidas
+Foram realizadas reuniões sobre o PGD e participação integral no Workday “Escuta e Diálogo sobre o PGD”. Houve ainda mediação da sala de webconferência da 99ª reunião do Conselho Superior do Ifes e reunião geral do Cefor sobre a nova direção.
+Curtir
+01/09/2025
+até 31/10/2025
+CGTE-CEFOR
+Elton
+Elton
+01/09/2025 00:00
+30/09/2025 23:59
+30/09/2025 23:59
+100%
+Concluído
+Comentários
+51729
+Atividades extraordinárias recebidas
+21/03/25 - Fiz meu ajuste do ponto eletrônico referente ao mês de março.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/03/2025 00:00
+31/03/2025 23:59
+31/03/2025 23:59
+100%
+Concluído
+Comentários
+51768
+Atividades extraordinárias recebidas
+29/05 - 8h30 - 10h - Participei do momento de apresentação da proposta da candidato Lodovico para reitoria no campus Colatina
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 00:00
+100%
+Concluído
+Comentários
+51719
+Atividades extraordinárias recebidas
+10/03/25 - Me reuni com a Thereza para fazer o fechamento do PGD da Coordenadoria de Pesquisa.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/03/2025 00:00
+31/03/2025 23:59
+31/03/2025 23:59
+100%
+Concluído
+Comentários
+94836
+Atividades extraordinárias recebidas
+Foi realizado o acompanhamento de visita técnica da Polícia Militar, com apresentação do Cefor e da CGTE e discussão sobre educação a distância no serviço público, além da participação em palestra sobre ética no Ifes.
+Curtir
+01/09/2025
+até 31/10/2025
+CGTE-CEFOR
+Elton
+Elton
+01/10/2025 00:00
+31/10/2025 00:00
+31/10/2025 00:00
+100%
+Concluído
+Comentários
+51759
+Atividades extraordinárias recebidas
+14/05 - Participei da reunião da equipe de Design para tratar do ReliCefor e o impacto do processo para a CGTE.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 00:00
+100%
+Concluído
+Comentários
+51735
+Atividades extraordinárias recebidas
+09/04/25 - Atualizei minhas atividades no Board.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/04/2025 00:00
+30/04/2025 23:59
+30/04/2025 23:59
+100%
+Concluído
+Comentários
+51741
+Atividades extraordinárias recebidas
+14/04/25 - Fiz minha autoavaliação para progressão na instituição.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/04/2025 00:00
+30/04/2025 23:59
+30/04/2025 23:59
+100%
+Concluído
+Comentários
+51721
+Atividades extraordinárias recebidas
+07/03/25 - Reunião da CGTE para tratar sobre TAE da CGTE no desenvolvimento de Pesquisa.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/03/2025 00:00
+31/03/2025 23:59
+31/03/2025 23:59
+100%
+Concluído
+Comentários
+51733
+Atividades extraordinárias recebidas
+Em março fiz a solicitação da F002 para ira no 3º encontro com os NTEs do Ifes.
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/03/2025 00:00
+31/03/2025 23:59
+31/03/2025 23:59
+100%
+Concluído
+Comentários
+51766
+Atividades extraordinárias recebidas
+27/05 - 9h - 10h30 - Participei do momento de apresentação da proposta da candidata Adriana para reitoria no campus Colatina
+Curtir
+01/03/2025
+até 31/05/2025
+CGTE-CEFOR
+Juliana
+Juliana
+01/05/2025 00:00
+31/05/2025 00:00
+31/05/2025 00:00
+100%
+Concluído
+Comentários
+Versão: 2.7.5
+

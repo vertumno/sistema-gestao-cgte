@@ -1,0 +1,151 @@
+
+53:43 Marcos Vinícius Forecchi Accioly: Valeu gente eu tô de pele hoje e amanhã tá.
+53:44 Elton Vinicius: Falou, tchau, tchau. Bom demais.
+53:48 Marcos Vinícius Forecchi Accioly: Beijo Rute. E aí maninho? Nossa velho, você só pega pedreiro também, né, velho? Eu te deixei coordenando aí que que aconteceu que teve que você teve que resolver.
+54:09 Elton Vinicius: Nossa não entendi assim essa apareceu aí o pessoal a gente precisa de
+54:11 Marcos Vinícius Forecchi Accioly: p*** m**** Mas e a posse e com não só após um dia depois mudou, né o ministro ia vir não veio.
+54:27 Elton Vinicius: gravação precisa gravar com professor precisa gravar com isso, mas deu tudo certo, tá tranquilo.
+54:31 Marcos Vinícius Forecchi Accioly: Não é no final a gente resolve, mas assim É estressante, né? Às vezes um pouco.
+54:37 Elton Vinicius: É cara coordenar a Janeiro assim, já sei que é treta. Outra vez que eu cuidei a diretoria com a Vanessa apareceu.
+54:50 Marcos Vinícius Forecchi Accioly: Ai meu Deus.
+54:52 Elton Vinicius: Foi Janeiro até janeiro janeiro fevereiro é a mesma coisa.
+54:56 Marcos Vinícius Forecchi Accioly: Eu achava que era CGU foi o TCU que apareceu. Então vou voltar na quinta-feira então, né? Beleza vamos fazer a
+55:04 Elton Vinicius: Como é que tá o mundo de Asa aí? Como é que você tá? Você tá usando
+55:06 Marcos Vinícius Forecchi Accioly: divulgação, né mandar lá naquele grupo.
+55:17 Elton Vinicius: coisas está descobrindo coisas mais ou menos.
+55:22 Marcos Vinícius Forecchi Accioly: Rapaz, estou mais ou menos, cara.
+55:24 Elton Vinicius: Mais ou menos.
+55:25 Marcos Vinícius Forecchi Accioly: Tô usando mas assim é mas tipo, tô usando mais para as coisas que eu preciso para resolver coisas pontuais não tô muito criando com ela assim conversando e tentando não tô tanto tomemos ativo assim. Tô fazendo mas nem tanto muitas vezes, eu percebi que eu tava perdendo um tempo em alguns momentos. Para ideias era bom mas eu ficava perdendo tempo tentando é a curva do aprendizado da tecnologia nova também também tem isso.
+55:56 Marcos Vinícius Forecchi Accioly: mas às vezes eu tinha essa impressão de que eu tava fazendo um negócio eu me peguei tipo assim eu Gastando 10 minutos para tentar fazer aí a entender um negócio que eu levaria 10 minutos para fazer.
+56:10 Elton Vinicius: só queria
+56:10 Marcos Vinícius Forecchi Accioly: Entendeu cinco minutos, tipo assim, eu me vi explicando um negócio falei não, mas isso aqui é só eu quando comecei me pegando nesse comportamento. Falei Caraca bicho, eu tô começando. a querer fazer com ela coisas que eu Tipo assim, não é difícil de fazer só foi me dando uma preguiça de pensar, entendeu? Mas uma preguiça de pensar assim, isso é ruim.
+56:33 Elton Vinicius: Total Não isso aí eu já me vi várias vezes Eu tô cara usando bastante o agora o terminal aqui, né? Rapaz eu tenho que te mostrar essas paradas, tipo a gente desenvolver coisas.
+56:44 Marcos Vinícius Forecchi Accioly: do Cloud É mesmo.
+56:58 Elton Vinicius: possibilidades assim é um outro nível mesmo de uso de p**** você tá doido?
+57:03 Marcos Vinícius Forecchi Accioly: É mesmo. Que eles estão muito.
+57:08 Elton Vinicius: Que agora é um nível agente assim, né? Então assim a ideia é Por exemplo, eu instalei aqui um Framework de desenvolvimento. E aí cara. Eu que a gente construiu um negócio lá no novoble. Tipo fica daquele jeito, né? Tipo, você vai construindo depois vai c******, né? aí que acontece esse tremor que eu baixei ele o Que você baixa ou consegue baixar por exemplo se desenvolvendo logo e aí ele faz e ele refaz esse sistema né? Refratora, né? E aí tipo. São vários agentes Manager então por exemplo.
+57:56 Marcos Vinícius Forecchi Accioly: uhum
+57:59 Elton Vinicius: Então, ele vai olhar vai falar assim bom você precisa. Aí ele vai precisar reorganizar a parte de segurança vai ter que criar vários épicos de desenvolvimento dentro dele vai ter os Stories ele estrutura o que precisa ser feito. Aí eu mando ele para o Master os croo Master vai e escreve os épicos os Stories de cada do desenvolvimento. Aí depois eu mando para o débito. Aí mando para o cara de qualidade o cara de qualidade vai revisa o que o desenvolvimento?
+58:39 Marcos Vinícius Forecchi Accioly: E você tá fazendo isso? Isso é uma ideia.
+58:41 Elton Vinicius: Aí eu fiz isso não eu fiz isso eu fiz.
+58:44 Marcos Vinícius Forecchi Accioly: para
+58:46 Elton Vinicius: Não é eu fiz isso para um. Quando eu fui fazer a palestra cara, é mas eu joguei num servidor ele mesmo
+58:52 Marcos Vinícius Forecchi Accioly: serviço web
+58:57 Elton Vinicius: joga, né? Um agente de ele faz o convite joga para o meu para o meu github do
+59:05 Elton Vinicius: meu aí. Conectou com o versal que é um servidor. Ele mesmo fez o Deploy tava lá online. é que eu fiz eu fiz com Sabe aquele quando eu fui dar aquela palestra a palestra lá do Andrômeda de dados
+59:24 Marcos Vinícius Forecchi Accioly: Não lembro não palestra de dados.
+59:25 Elton Vinicius: como usar os relatórios para todo mundo para semana pedagógica para os logs do mundo para tomar decisões pedagógicas no início de fevereiro Eu não lembro não, estou tendo.
+59:45 Marcos Vinícius Forecchi Accioly: Lembro os dados do mundo para decisões pedagógicas.
+59:49 Elton Vinicius: Filhos aí eu peguei esse esse Cloud code né? E o iOS que esse Framework para
+59:55 Marcos Vinícius Forecchi Accioly: Sim, sim.
+59:55 Elton Vinicius: ele extrair. E isso então mas isso aí é o que eu fiz usando essa estrutura de Agentes foi justamente. Eu peguei aquele aquilo que a gente tinha achado aquela Universidade que enriquecia. Os logs do mundo e depois colocava táxonomia de Bloom. Você lembra? Eu pedi para ele estudar, como é que eles faziam e queria fazer um igual. Aí ele fez um igual nesse processo todo usando. Esses todos esses agentes então eu criei um aplicativo igual aquele da Universidade obviamente deve ser totalmente igual mas que ele limpa os olhos que ele coloca os ataque sua linha de bunda. Tá disponível. Tipo não servidor.
+01:00:46 Elton Vinicius: estruturado
+01:00:47 Marcos Vinícius Forecchi Accioly: Legal sim. Acho que essa é uma boa coisa para mostrar também na quinta-feira
+01:00:49 Elton Vinicius: depois eu
+01:00:52 Marcos Vinícius Forecchi Accioly: já né? Falar um pouco.
+01:00:54 Elton Vinicius: Bem avançado, né?
+01:00:55 Marcos Vinícius Forecchi Accioly: É a gente vê o que que é que a gente vai falar, né? Mas sempre No começo
+01:00:57 Elton Vinicius: Aí eu tô falando disso, mas vamos pensar o Iaiá exatamente.
+01:01:00 Marcos Vinícius Forecchi Accioly: sim, mas dependendo de quem é. Interessado que pensar não amiga é aquilo mesmo 15 horas quinta-feira a gente se encontra bate um papo é o que a gente tá fazendo agora. Não vamos criar mais essa demanda não, tá tranquilo, eu acho que o papo é tá tranquilo. Acho que o que a gente precisaria sentar e você para ver essa questão do camboard, quanto antes a gente organizar isso melhor.
+01:01:27 Elton Vinicius: uhum
+01:01:28 Marcos Vinícius Forecchi Accioly: Saca colocar como uma diretriz para o setor mesmo, ó, só serão contabilizadas tarefas no relatório de gestão e para tal no relatório mini relatório bimestral da cgte o que tiver no camboard então assim porque os meninos da do audiovisual vão chiar. Então, a gente precisaria fazer de um jeito aí a gente tem que sentar para
+01:01:49 Elton Vinicius: uhum
+01:01:50 Marcos Vinícius Forecchi Accioly: pensar isso. Eu não sei se a gente integra como outra solução. Feita por ya, por exemplo uma coisa intermediária, entendeu? Se a gente já ligasse o Comboio que eu tô pensando, tá? Se a gente já ligasse o camboard. criasse alguma coisa, tipo assim uma semana primeiro mês mês de Sei lá 15 dias de desafio e visualização das coisas, sei lá alguma coisa assim um desafio. E já fizesse um dashboard é um lugar onde isso fica sendo visualizado.
+01:02:27 Marcos Vinícius Forecchi Accioly: Ou já fizesse a parte que vai proteger dele, por exemplo criasse uma vantagem para a gente já anotar lá. Entendeu? A gente já faria uma adoção muito mais rápida.
+01:02:39 Elton Vinicius: Total total
+01:02:40 Marcos Vinícius Forecchi Accioly: Ou seja a gente senta planeja categorias e tal como seria a gente precisa fazer um MVP, né? Nosso assim protótipo primeiro a gente experimenta vai usar o Camboja assim vai notar sim isso aqui sai aqui beleza aqui a gente consegue copiar, tipo a gente fez lá o helper lá no chat GPT, entendeu? A gente fez eu fiz aquilo lá eu uso até hoje cara até hoje. Eu uso o mesmo para anotar as coisas no PG desse Ou seja, eu fiz um Copie e cola lá no pgd e pronto socorro.
+01:03:18 Marcos Vinícius Forecchi Accioly: Então eu acho que a gente precisa chegar primeiro no protótipo, talvez fazer isso até digamos assim, hoje é dia 23 tentar fazer isso essa semana e na próxima digamos para até a metade de Março. A gente já ter isso, entendeu? O que que é que a gente vai fazer assim?
+01:03:33 Elton Vinicius: Sim vamos dar espremido aqui seria qual que é qual que são as dores, né?
+01:03:36 Marcos Vinícius Forecchi Accioly: entende
+01:03:44 Elton Vinicius: uma dor é a dor de Ter que ficar levando e as informações das tarefas que a gente realizou. organizando para colocar isso dentro do pgd eu poderia
+01:03:59 Marcos Vinícius Forecchi Accioly: isso
+01:04:04 Elton Vinicius: ficar bem melhor categorizado e até
+01:04:07 Marcos Vinícius Forecchi Accioly: isso
+01:04:09 Elton Vinicius: Das informações aquilo que o cadastro no pgd ou a entrega que eu tenho que fazer ela e outra esteja já também dentro do cambote no mesmo formato.
+01:04:21 Marcos Vinícius Forecchi Accioly: De alguma forma assim mesmo que ela não esteja no Camboja de algum no mesmo formato, mas que a gente consiga. Enxergar isso no mesmo formato então por exemplo no Camboja. Digamos que a gente categoriza de uma forma. Mas coloca também uma palavra chave Às vezes a união da categoria com a palavra chave tem relação com uma entrega hoje, a gente vai colocar um ID de uma entrega, por exemplo. Ah isso aqui a gente vai dentro do Camboja criar uma relação.
+01:04:51 Marcos Vinícius Forecchi Accioly: Hashtag o número e esse hashtag o número é a entrega tal entendeu? Ou palavras-chave que ligam com as entregas do pgd por exemplo, mas aí a ideia não é necessariamente que dentro do Camboja a gente consiga entender o pgd também. É que talvez não é interfase intermediária ele organiza os dados para a gente poder levar para o PG dele. Eu tô pensando mais assim, entendeu?
+01:05:15 Elton Vinicius: Entendi, entendi, a gente conta as mesas.
+01:05:16 Marcos Vinícius Forecchi Accioly: porque Porque senão é capaz a gente não conseguir fazer isso no camboard e a gente
+01:05:21 Elton Vinicius: Entendi.
+01:05:22 Marcos Vinícius Forecchi Accioly: tem um trabalho muito grande, eu acho que a gente teve uma dor também é manter o camborde simples porque hoje se ele funciona porque a gente faz o mínimo. Ninguém usa toda a complexidade que ele tem mas também existe uma dor de subutilizar um sistema que poderia ajudar mais a gente. Entendeu?
+01:05:41 Elton Vinicius: É porque a outra coisa é essa, né? A gente estruturar o uso do camboard para que ele consiga gerar dados de qualidade para um relatório de gestão e para
+01:05:55 Marcos Vinícius Forecchi Accioly: Isso é uma outra dor e que não precisa ser só uma vez por ano essa aqui é a
+01:05:57 Elton Vinicius: até análise da gestão, né?
+01:06:03 Marcos Vinícius Forecchi Accioly: questão também porque a gente para para fazer. Essa gestão dos dados uma vez por ano, né? Mas a gente poderia fazer mensal bimestral, entendeu? Para gente olhar o nosso trabalho e saber se estamos caminhando para as metas isso vai ajudar a gente a organizar o pgd do próximo ano. Por exemplo também, entendeu? Para a gente colocar entregas e metas que tem mais relação com o que a gente produz já.
+01:06:31 Marcos Vinícius Forecchi Accioly: Entendeu? E aí a gente pode melhorar a forma como a gente planeja o ano que hoje a gente não tá fazendo certo, né? Cara na pgd. Entende, a gente não tá fazendo certo era para ter uma entrega. Tipo assim. É oitavo quando você for nono.
+01:06:48 Elton Vinicius: Não não sei.
+01:06:49 Marcos Vinícius Forecchi Accioly: Sei lá 9º conserva. E aí a gente fez um pão de trabalho esse mês aí todo mundo entregou isso fez uma entrega assim. Fez uma entrega assado fez uma entrega eu vou lá na entrega nono com cefor e atualiza tá 20% feita essa entrega. Tá 30% feito não a gente não tá fazendo isso toda vez a gente na execução a gente bota como 100% a gestão não tá fazendo nada de organização das entregas, entendeu? Tá mal feito ainda e eu sei que esse momento vai chegar a gente tem que fazer isso, então acho que a gente organizar a base dos dados para nós vai pode nos ajudar muito.
+01:07:26 Marcos Vinícius Forecchi Accioly: Só que eu acho que uma dor é não fazer isso de uma forma que complica mais a nossa vida do que ajude, a gente não quer ter um quinto trabalho, imagina que eu já tô anotando em quatro lugares. Porque até um quinto trabalho, então vamos fazer isso. Não. Também tô achando que sim, mas essa é a nossa teoria por isso a gente precisa
+01:07:43 Elton Vinicius: Me parece que a gente. organizando como a gente Faz no camboard isso vai em cadeia. Resolvendo todas as outras coisas, né?
+01:08:03 Marcos Vinícius Forecchi Accioly: fazer um protótipo isso aí. É isso aí a gente talvez precisa prototipar. Nós depois que a gente leva o MVP para cgte, entendeu?
+01:08:18 Elton Vinicius: E vai a partir do uso a gente vai a gente funciona.
+01:08:21 Marcos Vinícius Forecchi Accioly: E eu acho que essas são dois grandes dois projetos assim que a gente tem que tocar Cara é esse e o da agenda. Calendário compartilhado porque por exemplo você fez aquele negócio em Janeiro por teletrabalho. Mas é amanhã, você sabe quem tá no trabalho. Eu também não sei. Tipo assim, ela tem que ficar perguntando para todo mundo, sabe? Assim semana que vem que gravações que tem. Tem lá agenda do audiovisual deles lá, mas tipo assim não era melhor a gente usar por exemplo tem uma agenda do áudio visual no Google. Agenda uma agenda das férias do setor.
+01:09:04 Marcos Vinícius Forecchi Accioly: uma agenda Sei lá dos eventos quando você forma e a gente unifica tudo isso em uma agenda só da cgt.
+01:09:15 Elton Vinicius: uhum
+01:09:16 Marcos Vinícius Forecchi Accioly: Entendeu ou é uma agenda da cgte? Em que todo mundo acesse faz isso na mesma agenda, eu não sei ainda, entendeu? Mas a gente precisava prototipar esse tipo é na agenda mesmo é uma planilha que nós vamos fazer. Fazendo a mão, entendeu? Não sei. Porque tendo uma agenda da cgte a gente sobrepõe a agenda da cgts na nossas agendas, se a gente quiser e a gente consegue ter uma visão muito mais clara de que dia que dá para fazer uma reunião.
+01:09:44 Marcos Vinícius Forecchi Accioly: Precisaria ficar perguntando Claro que não é agora isso vai levar tempo ainda, né? Para isso se ajeitar vamos dizer assim, mas precisa organizar essa infraestrutura que
+01:09:54 Elton Vinicius: É e essa organização, né? Cara? Vai nos ajudar a longo prazo, né? Cara? Que
+01:09:55 Marcos Vinícius Forecchi Accioly: Permite isso acontecer. Entendeu?
+01:10:02 Elton Vinicius: tipo cada vez mais teletrabalho.
+01:10:02 Marcos Vinícius Forecchi Accioly: exatamente
+01:10:08 Elton Vinicius: distribuição de pessoas
+01:10:08 Marcos Vinícius Forecchi Accioly: Viagem quer usar o teletrabalho em viagem, entendeu? Aí eu fico sempre na dúvida eu consigo ir. Tem dores pessoais minhas tem dores de gestão também, entendeu? Tipo entrou fevereiro, não sei nada. Eu tenho que entrar numa planilha de férias para olhar as férias das pessoas aí bater isso conseguir RH, aí eu tenho que entrar num lugar para ver os teletrabalhos que nem sei onde é. Acho que hoje nem tem a gente parou de fazer aquele.
+01:10:35 Marcos Vinícius Forecchi Accioly: Aquele lugar onde a gente estava organizando precisa voltar pelo menos a fazer isso enquanto não faz essa agenda compartilhada aí em outro lugar, tu quer entrar para ver as gravações do audiovisual em outro lugar, tem que olhar os agendamentos das intérpretes de libras, cara inferno, não tem como. Entendeu só aí já são cinco lugares para olhar. Para conseguir tomar uma decisão, entendeu? Então em termos de gestão é muito ruim a decisão demora muito para tomar porque dá muito trabalho aí é melhor não tomar decisão nenhuma.
+01:11:05 Marcos Vinícius Forecchi Accioly: Ou sobrecarregar os funcionários, vai lá e pergunta para todo mundo aí todo mundo se organiza cada um. Olha aí todo mundo olha nas agendas de gestão, não funciona também, entendeu? Não tem isso.
+01:11:18 Elton Vinicius: mas não muito bom, cara, cara uma outra coisa só para compartilhar com você, assim foi bem foi bem maneiro assim a a apresentação lá do pessoal gostou para caramba sobre
+01:11:30 Marcos Vinícius Forecchi Accioly: Eu lembro disso aí que eu falei que eu tava lembrando.
+01:11:31 Elton Vinicius: Sobre dados né? Eu fiz aqui aquele aquele linktree lá, né? Você viu esse guia prático aqui que eu fiz esse aqui ficou massa. Aí tipo era um passo a passo para galera, né? Então tipo assim além da
+01:11:47 Marcos Vinícius Forecchi Accioly: então
+01:11:52 Elton Vinicius: apresentação. Aí depois falei olha vai ficar com vocês. A gente passou aqui, ó. Se tiver lá sozinho, você tem essas três etapas para você fazer né? Tipo a extração tratamento. Então você começa aqui com a extração.
+01:12:02 Marcos Vinícius Forecchi Accioly: Eu tô vendo sua tela do linktree ainda, você sabe.
+01:12:10 Elton Vinicius: Então ele sozinho consegue fazer a extração, como é que eu faço dos logs
+01:12:11 Marcos Vinícius Forecchi Accioly: Aí boa.
+01:12:21 Elton Vinicius: aí tem que eu passo a passo selecione a parte. Clique em download vem aqui processo de conclusão aí notas. Aí beleza, pinta essa parte agora você vai tratar os dados aí você vai lá vai usar o anonizador que a gente criou e clica aqui faz download de um html. A gente fez lá na hora aí depois agora a gente vai usar. o lnm né aí aqui eles explicam um pouco sobre o Até que trocar aqui tá 1.5, né? 3 aí ele acessa o geminai. E aí depois assim agora é hora de perguntar para o geminais. Né então aqui aí eu botei um prompt, né que ele pegava.
+01:13:07 Elton Vinicius: Então eles pegarem né? Quais são os principais cursos, quais alunos que esse aqui que eles gostaram se fosse realmente se eu fosse redesenhar esse curso para a próxima turma. Que mudanças os dados sugerem.
+01:13:18 Marcos Vinícius Forecchi Accioly: Total total É aquilo que a gente falou Pô a inteligência para o professor.
+01:13:24 Elton Vinicius: Exata e foi engraçado quando eu comecei a mostrar aqui, né? Aí o Joãozinho no meio assim. Pô, você não tem uns prontos prontos não para gente olha, aí eu pensei em você. Esse passo a passo né? Primeiro manda esse aí aí depois você visualiza as informações agora criar algo visual para facilitar a minha análise e me dê recomendações de intervenção. E aí você também uma coisa que é interessante você fazer algo mais humano mais criativo, então uma ideia era tipo você pedir para que ele Conte a história da turma a partir desses dados como se fosse um documentário.
+01:14:09 Elton Vinicius: Aí você começa geral. Como se comporta E cria personagens, né identifica os perfis da apelidos para eles em seguida conta uma jornada p****, a gente fez
+01:14:18 Marcos Vinícius Forecchi Accioly: Para o coordenador de curso, mas ainda né? Se ele pegasse tudo isso das turmas
+01:14:20 Elton Vinicius: isso ficou um aneurisma assim, né? Lá na hora tipo foi fazer na prática muito bom, porque dá uma outra forma de você enxergar os dados.
+01:14:37 Marcos Vinícius Forecchi Accioly: que ele tá coordenando ou se ele fala para cada professor fazer cada um faz entrega para ele, ele tem um Panorama do que tá acontecendo no curso, né? Entendeu?
+01:14:47 Elton Vinicius: E eles viram muito também que faz sentido para o de né? Tipos. Né aí ainda botei essa biblioteca de prontos aqui, né? Que é baseado na dor então por exemplo. Foi listado várias dores e aí a partir da dor, você tem um. Então aqui nunca sei qual é o melhor horário para marcar a lives e plantões de dúvidas Acabo fazendo horário que Mal Tem gente. É alguns sites pode dar né e Analisa os logs, identifique os horários de pico de atividade dessa turma e a taxa de utilização de cada então foram válidas.
+01:15:23 Marcos Vinícius Forecchi Accioly: Eu acho que agora é organizar o projeto e que que vai fazer fazer MVP saco.
+01:15:27 Elton Vinicius: Seguir aqui para eles fazerem sozinho então. A ideia é que aconteceu a partir disso, cara. Pessoal gostou muito é um projeto que parece que sim vai precisar caminhar já tinha conversado isso com o Bruno, né? quando Para Mariela também tá interessada em fazer um bem específico assim, aí eu
+01:15:55 Marcos Vinícius Forecchi Accioly: E deixar disponível.
+01:16:03 Elton Vinicius: falei vamos fazer junto cara agora com esse Cloud code aqui cara, você parece que eu tô fazendo dá para a gente fazer qualquer sistema velho. Nossa senhora, tá muito.
+01:16:12 Marcos Vinícius Forecchi Accioly: Você é capaz que você tá pagando pro 17 dólares.
+01:16:16 Elton Vinicius: O cloud assim, mas aí eu descobri que dá para fazer com o código também,
+01:16:19 Marcos Vinícius Forecchi Accioly: É legal.
+01:16:22 Elton Vinicius: então tipo. Você consegue usar você tá com assinatura do GPT ainda ou não? Então daria para fazer fácil com ele também, então é outra parada que assim
+01:16:29 Marcos Vinícius Forecchi Accioly: Tô tô do geminais também, né?
+01:16:36 Elton Vinicius: ele vai entrar no nosso escopo de alguma forma assim de acho que vai. Ter bastante diferença assim para gente de Trabalho. Acho que a gente vai ter que fazer mais coisas com isso assim. A Mariana pediu para para compartilhar com os 10 dela então a Talita né que é você de que curso já tá olhando isso, né? Isso aqui foi só uma versão Inicial, né, velho?
+01:17:03 Marcos Vinícius Forecchi Accioly: Tá É isso aí, é acho que agora nós temos. Isso aí foi o protótipo a gente tem que caminhar e agora entendeu? Outro dia que fica disponível para eles de alguma forma. Que eles conseguem usar.
+01:17:18 Elton Vinicius: consegue
+01:17:18 Marcos Vinícius Forecchi Accioly: E deu certo fazer aquecimento do log aquela coisa era onimizada deu certo? Mas mesmo analisado minha pergunta é o professor consegue ter em sites sobre alguém se ele quiser não né? Ele consegue saber quem que é o aluno?
+01:17:38 Elton Vinicius: M que eu fiz isso depois Tipo ele
+01:17:40 Marcos Vinícius Forecchi Accioly: Tá legal.
+01:17:44 Elton Vinicius: ele eu fiz uma forma que aparece também o Os alunos e quem é a referência então ele gera um arquivo só com quem é o aluno um três então se ele isso então quando ele joga para os animais fala atenção ao aluno 1 e o aluno 7, aí ele consegue depois lá e ver qual é o sete e fazer isso. Eu ajustei isso no analisador. Uma coisa que a Aline tinha falado Cara não sei se ela falou com você, ela quer fazer um boletim. Eu informe se for.
+01:18:30 Elton Vinicius: com as coisas que aconteceu assim em Fevereiro assim, né na posse aí.
+01:18:40 Marcos Vinícius Forecchi Accioly: Vou anotar aqui para eu poder fazer na comunicação, né?
+01:18:45 Elton Vinicius: Ela me mandou algumas informações, eu vou organizar aqui.
+01:18:49 Marcos Vinícius Forecchi Accioly: Ah legal, se você fizer o mínimo de organizar e me mandar já eu jogo o resto
+01:18:52 Elton Vinicius: e
+01:18:52 Marcos Vinícius Forecchi Accioly: eu faço.
+01:18:54 Elton Vinicius: Tá essas informações e a gente precisa fazer isso assim a gente faz essa semana.
+01:19:02 Marcos Vinícius Forecchi Accioly: beleza
+01:19:03 Elton Vinicius: Até quarta tá?
+01:19:05 Marcos Vinícius Forecchi Accioly: Beleza pode ser na quarta-feira a gente senta junto e já dá uma mexida. Beleza então velhinho.
+01:19:13 Elton Vinicius: Não vai mais então.
+01:19:14 Marcos Vinícius Forecchi Accioly: Qualquer coisa estou por aqui, tô de trabalho hoje amanhã. Mas fora esse quarto quinta sexta, eu tô lá eu ia ter aquela viagem que eu te falei no início de Março dia três seria na semana que vem, mas não vou ter. Tá me ouvindo não é? Possivelmente vai ser no dia 10 a minha palestra lá.
+01:19:32 Elton Vinicius: Ah então você vai ainda só em outra data.
+01:19:36 Marcos Vinícius Forecchi Accioly: Ao inaugurar eu vou ainda só não sei a data amanhã, eu tenho uma reunião com eles, eles me confirmando eu falo já na quarta-feira. Beleza e eu tô me organizando para uma viagem para o Peru. Mas eu tô eu tô na dúvida se vai rolar ou não até que enfim.
+01:19:51 Elton Vinicius: Que bom hein velho, até que enfim velho.
+01:19:55 Marcos Vinícius Forecchi Accioly: Com a com a Francine ela que me chamou e tal, mas a minha relação com ela tá
+01:19:56 Elton Vinicius: É mesmo.
+01:20:00 Marcos Vinícius Forecchi Accioly: meio curiosa assim. Ela entrou numa desapaixonou, né um pouco ela aí entrou numa outra fase, agora
+01:20:06 Elton Vinicius: Ela desaparece
+01:20:08 Marcos Vinícius Forecchi Accioly: acho que sim. Eu já sou já, estou assim, tem um tempinho já né? Mas vivendo mais a Paixão quando eu tô junto com ela quando eu tô ao vivo e tal mas não tô né, já. Tô assim, tem um tempo e ela não tipo assim aí semana passada deu uma surtada, mano. Nossa, tô feio.
+01:20:27 Elton Vinicius: ela
+01:20:30 Marcos Vinícius Forecchi Accioly: Eu vou surtada. Aí não aqui mesmo.
+01:20:34 Elton Vinicius: Mas você tava lá ou não?
+  

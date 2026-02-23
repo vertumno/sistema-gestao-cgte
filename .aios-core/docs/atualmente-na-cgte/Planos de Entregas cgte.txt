@@ -1,0 +1,338 @@
+Planos de Entregas
+Unidades Subordinadas 
+
+Vinculados 
+
+Meus
+
+Nome
+Nome do plano de entrega
+Unidade Executora
+1724 - CGTE-CEFOR - Coordenadoria Geral de Tecnologias Educacionais
+Status
+Arquivados
+
+Planejamento Institucional
+Cadeia de Valor
+Data
+Início
+
+23/02/2026
+Fim
+
+23/02/2026
+#ID	
+Nome
+Programa	
+Início	
+Fim	
+Planejamento Institucional
+Cadeia de Valor	
+Status
+Avaliação	
+CGTE-CEFOR
+ 29
+#1271	CGTE-CEFOR - 01/03/2025 - 31/05/2025
+Programa de Gestão e Desempenho do Ifes
+01/03/2025	31/05/2025		
+Concluído
+
+ 	
+Entrega
+Demandante/Destinatário	
+Etiquetas	
+Data Início
+Data Fim	
+Meta	
+Tipo De Meta
+Comentários	
+Evento Interpretado em Libras.
+IFES
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Repositório de Livros atualizado
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Atividade da Comissão NTE realizada
+IFES
+Ifes
+01/03/2025
+31/03/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Recurso didático visual criado.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Ação relacionada a Inteligência Artificial realizada
+CEFOR
+Ifes
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Produção científica desenvolvida
+CGTE-CEFOR
+Público geral
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Interpretação em evento externo realizada.
+IFES
+Estudantes surdos
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Conteúdo para Comunicação Visual elaborado
+CEFOR
+Setor de Comunicação
+01/03/2025
+31/03/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Edital traduzido para Libras.
+IFES
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+PGD trimestral elaborado
+CGTE-CEFOR
+CGTE-Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Sala modelo do Moodle lançada.
+CEFOR
+Professores do Ifes
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Atualização em Interface digital realizada.
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Podcast publicado.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Atividade da comissão Napne realizada.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Material didático traduzido para Libras.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Tutorial criado.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Design educacional institucional implementado.
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Repositório de Vídeos implementado.
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Curso MOOC atualizado
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Vídeo institucional do Cefor produzido.
+DIR-CEFOR
+Comunidade
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Informação em sistema institucional atualizada.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Checklist de Curso MOOC realizada
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Curso Mooc traduzido.
+CEFOR
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Atividade da Comissão de Comunicação realizada
+CEFOR
+Público geral
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Evento traduzido para Libras.
+IFES
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Formação ministrada.
+IFES
+Público-alvo da formação
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Conselho superior transmitido
+REI
+Reitoria
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Atividade da Comissão MOOC realizada
+CEFOR
+Cefor
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
+Colaboração técnica realizada em outros campi ou instituições
+IFES
+Público alvo
+01/03/2025
+31/05/2025	
+100 %
+
+0 %
+Meta Percentual
+Comentários
