@@ -36,34 +36,33 @@ export function ChartDownloadButton({ months, periodLabel }: ChartDownloadButton
     context.lineWidth = 1;
     context.strokeRect(chartLeft, chartTop, chartWidth, chartHeight);
 
+    const points = months.map((month, index) => ({
+      x: chartLeft + (index / Math.max(months.length - 1, 1)) * chartWidth,
+      y: chartTop + chartHeight - (month.finalizadas / max) * chartHeight,
+      label: month.label,
+      value: month.finalizadas
+    }));
+
     context.strokeStyle = "#0f766e";
     context.lineWidth = 3;
     context.beginPath();
+    points.forEach((point, index) => {
+      if (index === 0) context.moveTo(point.x, point.y);
+      else context.lineTo(point.x, point.y);
+    });
+    context.stroke();
 
-    months.forEach((month, index) => {
-      const x = chartLeft + (index / Math.max(months.length - 1, 1)) * chartWidth;
-      const y = chartTop + chartHeight - (month.finalizadas / max) * chartHeight;
-      if (index === 0) context.moveTo(x, y);
-      else context.lineTo(x, y);
-
+    points.forEach((point) => {
       context.fillStyle = "#0f766e";
       context.beginPath();
-      context.arc(x, y, 5, 0, Math.PI * 2);
+      context.arc(point.x, point.y, 5, 0, Math.PI * 2);
       context.fill();
 
       context.fillStyle = "#334155";
       context.font = "14px Arial";
-      context.fillText(month.label, x - 20, chartTop + chartHeight + 24);
-      context.fillText(String(month.finalizadas), x - 8, y - 10);
-
-      context.strokeStyle = "#0f766e";
-      context.lineWidth = 3;
-      context.beginPath();
-      context.moveTo(x, y);
-      context.lineTo(x, y);
+      context.fillText(point.label, point.x - 20, chartTop + chartHeight + 24);
+      context.fillText(String(point.value), point.x - 8, point.y - 10);
     });
-
-    context.stroke();
 
     const link = document.createElement("a");
     link.download = `cgte-evolucao-${periodLabel.toLowerCase()}.png`;

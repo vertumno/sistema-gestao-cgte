@@ -8,7 +8,7 @@ type KpiCardProps = KpiData & {
 };
 
 export function KpiCard({ label, value, trend, trendDirection, className }: KpiCardProps) {
-  const trendIcon = trendDirection === "up" ? "?" : trendDirection === "down" ? "?" : "?";
+  const trendIcon = trendDirection === "up" ? "\u2191" : trendDirection === "down" ? "\u2193" : "\u2192";
 
   return (
     <section

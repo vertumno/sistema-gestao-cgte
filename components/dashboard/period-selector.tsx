@@ -25,6 +25,7 @@ export function PeriodSelector() {
               key={option.value}
               type="button"
               aria-label={`Selecionar periodo ${option.label}`}
+              aria-pressed={active}
               onClick={() => setPeriod(option.value)}
               className={cn(
                 "rounded-md border px-3 py-2 text-sm outline-none transition focus-visible:ring-2 focus-visible:ring-emerald-600",

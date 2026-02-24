@@ -1,6 +1,6 @@
 ﻿"use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import { ChartDownloadButton } from "@/components/dashboard/chart-download-button";
 import type { MonthlyMetric, PersonMetric } from "@/types/dashboard";
 
@@ -80,6 +80,49 @@ export function TemporalChart({ months, categoryLabels, persons }: TemporalChart
 
   const maxValue = Math.max(...lines.flatMap((line) => line.values), 1);
 
+  const [tooltip, setTooltip] = useState<{ x: number; y: number; content: string } | null>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  const pgdSeparators = useMemo(() => {
+    const pgdStarts = [2, 5, 8, 11];
+    const separators: { x: number; label: string }[] = [];
+    const labels = ["Mar-Mai", "Jun-Ago", "Set-Nov", "Dez-Fev"];
+
+    months.forEach((month, index) => {
+      const monthNum = parseInt(month.month.split("-")[1], 10) - 1;
+      if (pgdStarts.includes(monthNum)) {
+        const x = 25 + (index / Math.max(months.length - 1, 1)) * 650;
+        separators.push({ x, label: labels[pgdStarts.indexOf(monthNum)] });
+      }
+    });
+    return separators;
+  }, [months]);
+
+  const handleMouseMove = useCallback(
+    (event: React.MouseEvent<SVGSVGElement>) => {
+      if (!svgRef.current || months.length === 0) return;
+      const rect = svgRef.current.getBoundingClientRect();
+      const mouseX = ((event.clientX - rect.left) / rect.width) * 700;
+      const chartX = mouseX - 25;
+      const step = 650 / Math.max(months.length - 1, 1);
+      const idx = Math.round(chartX / step);
+      if (idx < 0 || idx >= months.length) { setTooltip(null); return; }
+
+      const month = months[idx];
+      const parts = [`${month.label}: ${month.finalizadas} finalizadas`];
+      if (mode === "categoria") {
+        lines.forEach((line) => parts.push(`${line.label}: ${line.values[idx]}`));
+      } else if (mode === "pessoa") {
+        lines.forEach((line) => parts.push(`${line.label}: ${line.values[idx]}`));
+      }
+
+      const px = 25 + (idx / Math.max(months.length - 1, 1)) * 650;
+      const py = 10 + 210 - (lines[0].values[idx] / Math.max(maxValue, 1)) * 210;
+      setTooltip({ x: px, y: py, content: parts.join("\n") });
+    },
+    [months, lines, mode, maxValue]
+  );
+
   return (
     <section aria-label="Evolucao temporal" className="rounded-lg border border-slate-200 bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-3">
@@ -99,20 +142,23 @@ export function TemporalChart({ months, categoryLabels, persons }: TemporalChart
         </div>
       </div>
 
-      <div className="mt-4 rounded-md border border-slate-200 p-3">
-        <svg viewBox="0 0 700 280" className="h-[280px] w-full" role="img" aria-label="Grafico de linhas">
+      <div className="relative mt-4 rounded-md border border-slate-200 p-3">
+        <svg
+          ref={svgRef}
+          viewBox="0 0 700 280"
+          className="h-[280px] w-full"
+          role="img"
+          aria-label="Grafico de linhas"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={() => setTooltip(null)}
+        >
           <rect x="0" y="0" width="700" height="280" fill="#ffffff" />
 
-          {[0, 3].map((index) => (
-            <line
-              key={index}
-              x1={index * 116.7}
-              y1="0"
-              x2={index * 116.7}
-              y2="230"
-              stroke="#e2e8f0"
-              strokeDasharray="4 4"
-            />
+          {pgdSeparators.map((sep) => (
+            <g key={sep.label + sep.x}>
+              <line x1={sep.x} y1="0" x2={sep.x} y2="230" stroke="#e2e8f0" strokeDasharray="4 4" />
+              <text x={sep.x + 4} y="12" className="fill-slate-400 text-[9px]">{sep.label}</text>
+            </g>
           ))}
 
           {lines.map((line) => (
@@ -139,6 +185,15 @@ export function TemporalChart({ months, categoryLabels, persons }: TemporalChart
             </text>
           ))}
         </svg>
+
+        {tooltip && (
+          <div
+            className="pointer-events-none absolute z-10 whitespace-pre rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-700 shadow-md"
+            style={{ left: `${(tooltip.x / 700) * 100}%`, top: `${(tooltip.y / 280) * 100}%`, transform: "translate(-50%, -110%)" }}
+          >
+            {tooltip.content}
+          </div>
+        )}
       </div>
 
       <ul className="mt-3 flex flex-wrap gap-3 text-xs text-slate-600">
