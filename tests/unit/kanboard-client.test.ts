@@ -83,6 +83,110 @@ describe("KanboardClient", () => {
     });
   });
 
+  it("fetches tasks by project", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        jsonrpc: "2.0",
+        result: [{ id: "10", title: "Project Task", category_id: 2, column_id: 1 }],
+        id: 1
+      })
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const client = new KanboardClient();
+    const tasks = await client.getTasksByProject(5);
+
+    expect(tasks).toHaveLength(1);
+    expect(tasks[0].id).toBe(10);
+    expect(tasks[0].title).toBe("Project Task");
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.method).toBe("getAllTasks");
+    expect(body.params).toEqual({ project_id: 5 });
+  });
+
+  it("fetches all categories", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        jsonrpc: "2.0",
+        result: [
+          { id: "1", name: "Design", project_id: 1 },
+          { id: "2", name: "Audiovisual", project_id: 1 }
+        ],
+        id: 1
+      })
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const client = new KanboardClient();
+    const categories = await client.getAllCategories();
+
+    expect(categories).toHaveLength(2);
+    expect(categories[0].id).toBe(1);
+    expect(categories[0].name).toBe("Design");
+    expect(categories[1].id).toBe(2);
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.method).toBe("getAllCategories");
+  });
+
+  it("fetches project by id", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        jsonrpc: "2.0",
+        result: { id: "7", name: "CGTE Board" },
+        id: 1
+      })
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const client = new KanboardClient();
+    const project = await client.getProjectById(7);
+
+    expect(project.id).toBe(7);
+    expect(project.name).toBe("CGTE Board");
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.method).toBe("getProjectById");
+    expect(body.params).toEqual({ project_id: 7 });
+  });
+
+  it("fetches subtasks by task id", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: async () => ({
+        jsonrpc: "2.0",
+        result: [{ id: "20", task_id: 3, title: "Subtask A", status: 0 }],
+        id: 1
+      })
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const client = new KanboardClient();
+    const subtasks = await client.getAllSubtasks(3);
+
+    expect(subtasks).toHaveLength(1);
+    expect(subtasks[0].id).toBe(20);
+    expect(subtasks[0].task_id).toBe(3);
+    expect(subtasks[0].title).toBe("Subtask A");
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.method).toBe("getAllSubtasks");
+    expect(body.params).toEqual({ task_id: 3 });
+  });
+
+  it("raises connection error on network failure", async () => {
+    vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new TypeError("fetch failed")));
+
+    const client = new KanboardClient();
+    await expect(client.getAllTasks()).rejects.toMatchObject({
+      kind: "connection"
+    });
+  });
+
   it("keeps rate limit constant", () => {
     expect(RATE_LIMIT_MAX_PER_SEC).toBe(10);
   });

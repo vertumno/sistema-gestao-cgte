@@ -25,6 +25,11 @@ describe("taxonomy", () => {
     expect(categorias).toContain(16);
   });
 
+  it("returns empty array for non-existent category", async () => {
+    const entregas = await getEntregasPGD(9999);
+    expect(entregas).toEqual([]);
+  });
+
   it("fails on invalid schema", async () => {
     const invalidPath = path.join(os.tmpdir(), "taxonomy.invalid.json");
     await fs.writeFile(invalidPath, JSON.stringify({ categorias: [{ categoryId: 1 }] }), "utf-8");
