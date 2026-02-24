@@ -123,40 +123,37 @@ Nova página cursos IfesAds        │       digital realizada"
 Banner site                      ─┘
 ```
 
-### 3.2 Taxonomia Proposta para Categorização
+### 3.2 Taxonomia Aprovada (18 Categorias)
 
-Baseado na análise cruzada entre as tarefas do Kanboard, entregas do PGD e o relatório de gestão, proponho uma **taxonomia de 2 níveis**:
+> **Atualizado em 24/02/2026** — Validado por Marcos e Elton durante reunião de revisão do projeto.
 
-#### Nível 1: ÁREA (obrigatório — identifica o núcleo)
+**Estrutura de Boards (decisão final):**
+- **CGTE - Atividades** — Board principal (todas as tarefas)
+- **Informações Fixas e Recorrentes** — Board de referência
+- Sem swimlanes
 
-| Código | Área |
-|--------|------|
-| `DES` | Design |
-| `AV` | Audiovisual |
-| `LIB` | Libras |
-| `GES` | Gestão / Administrativo |
+**Categorias do Kanboard:**
 
-#### Nível 2: TIPO DE TRABALHO (obrigatório — mapeia para entregas PGD)
-
-| Tipo de Trabalho | Entregas PGD Relacionadas | Exemplos de Tasks |
-|------------------|---------------------------|-------------------|
-| **Comunicação Visual** | Conteúdo para Comunicação Visual elaborado | Banner, card, campanha, peça gráfica |
-| **Identidade Visual** | Recurso didático visual criado | ID de curso, padrões visuais, layouts |
-| **Interface Digital** | Atualização em Interface digital realizada | Site, Moodle, página, sistema |
-| **Formação** | Formação ministrada | Oficina, palestra, trilha, workshop |
-| **MOOC** | Checklist de Curso MOOC realizada / Curso MOOC atualizado | Checklist, lançamento, atualização |
-| **Conteúdo Educacional** | Tutorial criado / Podcast / Artigo base de conhecimento | Tutorial, artigo, guia, manual |
-| **Inteligência Artificial** | Ação relacionada a IA realizada | Papo com IAIÁ, GPTs, formação IA |
-| **Produção Científica** | Produção científica desenvolvida | Artigo, relato, congresso |
-| **Produção Audiovisual** | Material didático gravado/editado/publicado | Gravação, edição, transmissão |
-| **Evento/Transmissão** | Evento transmitido / Conselho transmitido | Live, consup, webconferência |
-| **Tradução Libras** | Curso MOOC traduzido / Material traduzido / Edital traduzido | Inserção vídeos Libras |
-| **Interpretação Libras** | Evento interpretado / Interpretação externa | Interpretação evento, aula |
-| **Acessibilidade** | Videobook / Atividade Napne | Videobook, audiodescrição |
-| **Comissão/Colegiado** | Atividade da Comissão X realizada | Reunião comissão, NTE, NAC, MOOC |
-| **Gestão/PGD** | PGD trimestral elaborado | PGD, relatório, ponto, SIGRH |
-| **Colaboração Institucional** | Colaboração técnica em campi/instituições | Apoio externo, cooperação |
-| **Demanda Extraordinária** | *(sem entrega fixa)* | Demanda urgente não planejada |
+| # | Categoria | Entregas PGD Relacionadas | Exemplos de Tasks |
+|---|-----------|---------------------------|-------------------|
+| 1 | **Comunicação Visual** | Conteúdo para Comunicação Visual elaborado | Banner, card, campanha, peça gráfica, thumbnail, kits de divulgação |
+| 2 | **Programação Visual Educacional** | Recurso didático visual criado; Design educacional institucional implementado; Repositório de Vídeos implementado | ID visual de curso, padrões visuais de sala Moodle, separadores, topos de sala |
+| 3 | **Conteúdo Digital** | Informação em sistema institucional atualizada | Publicação de notícias, publicação de banners, atualização de informações, artigo na Base de Conhecimento |
+| 4 | **Interface Digital** | Atualização em Interface digital realizada; Repositório de Livros atualizado | Mudanças de interface, novos códigos/UX, reformulação de sistemas (Base de Conhecimento, Vitrine MOOC) |
+| 5 | **Formação e Capacitação** | Formação ministrada | Oficina, palestra, trilha, workshop, SOS Moodle |
+| 6 | **MOOC** | Checklist de Curso MOOC realizada; Curso MOOC atualizado; Curso MOOC traduzido | Checklist, lançamento, atualização, inserção de vídeos em Libras em cursos MOOC |
+| 7 | **Conteúdo Educacional** | Tutorial criado; Podcast publicado | Tutorial, manual, podcast, guia prático, e-book instrucional |
+| 8 | **Inteligência Artificial** | Ação relacionada a Inteligência Artificial realizada | Papo com IA.IÁ, GPTs pedagógicos, Portal IA, Manual de Uso Ético |
+| 9 | **Produção Científica** | Produção científica desenvolvida | Artigo, relato de experiência, PICIT, congresso |
+| 10 | **Produção Audiovisual** | Material didático docente gravado; Material didático editado/renderizado/publicado; Vídeo institucional do Cefor produzido | Gravação, edição, pós-produção, vídeo institucional, videoaula |
+| 11 | **Evento / Transmissão** | Evento transmitido; Conselho Superior transmitido | Transmissão ao vivo, CONSUP, debate, posse, formatura |
+| 12 | **Libras Tradução** | Edital traduzido para Libras; Material didático traduzido para Libras; Evento traduzido para Libras | Tradução de editais, materiais didáticos, vídeos institucionais, revisão |
+| 13 | **Libras Interpretação** | Evento Interpretado em Libras; Interpretação em evento externo realizada | Interpretação em evento, aula, reunião, banca |
+| 14 | **Acessibilidade** | Videobook em Libras atualizado; Atividade da comissão Napne realizada; Atividades da comissão do repositório de vídeos em Libras realizada | Videobook, audiodescrição, atendimento Napne, organização YouTube |
+| 15 | **Comissão** | Atividade da Comissão NTE/MOOC/Comunicação/NAC/Nepgens/Material Didático realizada | Reunião de comissão, participação em NTE, NAC, MOOC, Nepgens |
+| 16 | **Gestão / PGD** | PGD trimestral elaborado | PGD, relatório de gestão, SIGRH, planejamento |
+| 17 | **Colaboração Institucional** | Colaboração técnica realizada em outros campi ou instituições | Apoio a campi, cooperação internacional |
+| 18 | **Demanda Extraordinária** | Sem entrega fixa — vinculada caso a caso | Demanda urgente não planejada (uso controlado) |
 
 ### 3.3 Campos Mínimos para Criar Tarefa no Kanboard
 
@@ -253,7 +250,7 @@ Para o MVP, cada card deve ter obrigatoriamente:
 ### Opção A: Configurar o próprio Kanboard (recomendado para MVP)
 
 O Kanboard já suporta:
-- **Categorias obrigatórias** → Configurar os 17 tipos como categorias do projeto
+- **Categorias obrigatórias** → Configurar as 18 categorias como categorias do projeto
 - **Descrição de categoria** → Cada categoria pode ter instrução embutida
 - A API do Kanboard permite extrair tudo por categoria
 
@@ -274,9 +271,9 @@ Um formulário web simples que:
 
 | O que falta | Impacto | Solução |
 |-------------|---------|---------|
-| Categorias padronizadas | Cards sem classificação (68%) | Criar as 17 categorias propostas |
+| Categorias padronizadas | Cards sem classificação (68%) | Criar as 18 categorias aprovadas |
 | Tags vinculadas ao PGD | Sem rastreabilidade | Tags opcionais `#pgd-xxx` |
-| Board do Audiovisual | Área inteira fora do sistema | Criar board separado com mesmas categorias |
+| Board de referência | Informações fixas misturadas com tarefas | Criar board "Informações Fixas e Recorrentes" |
 | Convenção de títulos | Títulos inconsistentes | Guia rápido (1 página) |
 | Dashboard externo | Sem visão gerencial | Sistema intermediário (MVP) |
 | Exportação PGD | Copiar/colar manual | Relatório formatado automático |
@@ -289,18 +286,19 @@ Um formulário web simples que:
 
 | Risco | Prob. | Impacto | Mitigação |
 |-------|-------|---------|-----------|
-| 17 categorias serem "demais" | Média | Servidor erra ou ignora | Começar com ~10 categorias mais usadas |
-| Audiovisual não adotar | Alta | Dados incompletos | Gamificação + diretriz da coordenação |
+| Sobrecarga cognitiva com 18 categorias | Baixa | Servidor erra ou ignora | Assistente IA sugere categoria; interface intuitiva |
+| Audiovisual não adotar | Média | Dados incompletos | Gamificação + diretriz da coordenação (futuro) |
 | Mapeamento categoria→entrega mudar | Baixa | Dashboard erra agrupamento | Tabela configurável no sistema |
 | Dados históricos perdidos | Certa | Sem comparação com 2025 | Aceitar: dados limpos começam agora |
 
 ### Recomendações
 
-1. **Começar SIMPLES**: MVP = categorias no Kanboard + script de extração + dashboard básico
-2. **Não criar formulário novo agora**: Usar o Kanboard nativo, só configurar melhor
-3. **Pilotar com Design primeiro** (já usam o board), depois expandir para Audiovisual
-4. **Meta de março**: Ter as categorias configuradas e pelo menos 1 mês de dados limpos
-5. **Mapeamento categoria→entrega PGD** deve ser configurável, não hardcoded
+1. **Usar as 18 categorias aprovadas**: Cobertura total das 29 entregas PGD. Validado por Marcos e Elton (24/02/2026)
+2. **Assistente IA como facilitador**: Sugere categoria automaticamente reduzindo carga cognitiva do servidor
+3. **2 boards**: "CGTE - Atividades" (principal) + "Informações Fixas e Recorrentes" (referência). Sem swimlanes
+4. **Pilotar com Design primeiro** (já usam o board), depois expandir para Audiovisual
+5. **Meta de março**: Ter as 18 categorias configuradas e pelo menos 1 mês de dados limpos
+6. **Mapeamento categoria→entrega PGD** deve ser configurável, não hardcoded
 
 ---
 

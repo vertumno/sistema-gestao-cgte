@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorias Kanboard — CGTE/Cefor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: #f0f2f5;
+            color: #1a1a2e;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #1a5632;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #1a5632;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        thead {
+            background: #1a5632;
+            color: white;
+        }
+
+        thead th {
+            padding: 1rem 1.2rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        thead th:first-child {
+            width: 4%;
+            text-align: center;
+        }
+
+        thead th:nth-child(2) {
+            width: 18%;
+        }
+
+        thead th:nth-child(3) {
+            width: 42%;
+        }
+
+        thead th:nth-child(4) {
+            width: 36%;
+        }
+
+        tbody tr {
+            transition: background 0.15s ease;
+        }
+
+        tbody tr:hover {
+            background: #f0faf4;
+        }
+
+        tbody tr:not(:last-child) td {
+            border-bottom: 1px solid #e8ecf0;
+        }
+
+        tbody td {
+            padding: 0.9rem 1.2rem;
+            vertical-align: top;
+            font-size: 0.9rem;
+        }
+
+        tbody td:first-child {
+            text-align: center;
+            font-weight: 700;
+            color: #1a5632;
+            font-size: 0.85rem;
+        }
+
+        .cat-name {
+            font-weight: 600;
+            color: #1a1a2e;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+
+        .cat-area {
+            font-size: 0.75rem;
+            color: #888;
+            display: inline-block;
+            background: #f0f2f5;
+            padding: 0.1rem 0.5rem;
+            border-radius: 10px;
+        }
+
+        .area-design { background: #ede7f6; color: #5e35b1; }
+        .area-libras { background: #fff3e0; color: #e65100; }
+        .area-av { background: #e3f2fd; color: #1565c0; }
+        .area-gestao { background: #fff8e1; color: #f9a825; }
+        .area-transversal { background: #f1f8e9; color: #558b2f; }
+        .area-todas { background: #fce4ec; color: #c62828; }
+
+        .task-list {
+            color: #444;
+        }
+
+        .task-list span {
+            display: inline;
+        }
+
+        .entrega-pgd {
+            list-style: none;
+            padding: 0;
+        }
+
+        .entrega-pgd li {
+            position: relative;
+            padding: 0.2rem 0 0.2rem 1.2rem;
+            color: #2e5e3e;
+            font-size: 0.85rem;
+        }
+
+        .entrega-pgd li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #1a5632;
+            font-weight: bold;
+        }
+
+        .highlight-row {
+            background: #fffde7;
+        }
+
+        .highlight-row:hover {
+            background: #fff9c4 !important;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.8rem;
+        }
+
+        footer strong {
+            color: #666;
+        }
+
+        .stats {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 1.5rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem 1.8rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            text-align: center;
+            min-width: 160px;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a5632;
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            thead th, tbody td { padding: 0.6rem 0.7rem; font-size: 0.8rem; }
+            .stats { gap: 0.8rem; }
+            .stat-card { padding: 0.7rem 1rem; min-width: 120px; }
+            .stat-card .number { font-size: 1.5rem; }
+        }
+
+        @media print {
+            body { background: white; padding: 0; }
+            table { box-shadow: none; }
+            .stat-card { box-shadow: none; border: 1px solid #ddd; }
+            tbody tr:hover { background: transparent; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Categorias do Kanboard — CGTE/Cefor</h1>
+            <p>Taxonomia de categorização de tarefas com mapeamento para entregas do PGD (Petrvs)</p>
+            <span class="badge">18 categorias · 29 entregas PGD</span>
+        </header>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="number">18</div>
+                <div class="label">Categorias</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">29</div>
+                <div class="label">Entregas PGD</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">4</div>
+                <div class="label">Áreas</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">100%</div>
+                <div class="label">Cobertura PGD</div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Categoria</th>
+                    <th>Tipos de Tarefas</th>
+                    <th>Entregas PGD (Petrvs)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>
+                        <span class="cat-name">Comunicação Visual</span>
+                        <span class="cat-area area-design">Design</span>
+                    </td>
+                    <td class="task-list">
+                        Banner, card para redes sociais, campanha, peça gráfica, thumbnail, material para datas comemorativas, kits de divulgação (processo seletivo, matrícula), materiais institucionais físicos e digitais
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Conteúdo para Comunicação Visual elaborado</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <span class="cat-name">Programação Visual Educacional</span>
+                        <span class="cat-area area-design">Design</span>
+                    </td>
+                    <td class="task-list">
+                        Identidade visual de curso, padrões visuais de sala Moodle, separadores, topos de sala virtual, layout de sala, padronização estética, programação visual de materiais educacionais
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Recurso didático visual criado</li>
+                            <li>Design educacional institucional implementado</li>
+                            <li>Repositório de Vídeos implementado</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>
+                        <span class="cat-name">Conteúdo Digital</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Publicação de notícias no site, publicação de banners, atualização de informações em páginas e sistemas, publicação de artigo na Base de Conhecimento, atualização de conteúdo em plataformas institucionais
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Informação em sistema institucional atualizada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>
+                        <span class="cat-name">Interface Digital</span>
+                        <span class="cat-area area-design">Design</span>
+                    </td>
+                    <td class="task-list">
+                        Mudanças de interface, criação de novos códigos e experiências do usuário, reformulação de sistemas (Base de Conhecimento, Vitrine MOOC), redesign de interface Moodle, design de interface, certificados digitais, desenvolvimento de sistemas digitais internos
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Atualização em Interface digital realizada</li>
+                            <li>Repositório de Livros atualizado</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>
+                        <span class="cat-name">Formação e Capacitação</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Oficina, palestra, workshop, trilha, jornada, SOS Moodle, capacitação interna ou externa, formação de IA, formação de Libras
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Formação ministrada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>
+                        <span class="cat-name">MOOC</span>
+                        <span class="cat-area area-design">Design</span>
+                    </td>
+                    <td class="task-list">
+                        Checklist técnico de curso MOOC, lançamento de curso, atualização de cursos na vitrine, configurações de sala MOOC, inserção de vídeos em Libras em cursos MOOC
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Checklist de Curso MOOC realizada</li>
+                            <li>Curso MOOC atualizado</li>
+                            <li>Curso MOOC traduzido</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>
+                        <span class="cat-name">Conteúdo Educacional</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Tutorial, manual, podcast, guia prático, e-book instrucional, relatório técnico
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Tutorial criado</li>
+                            <li>Podcast publicado</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>
+                        <span class="cat-name">Inteligência Artificial</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Papo com IA.IÁ, GPTs pedagógicos, formações de IA, prototipagem, Portal IA, Manual de Uso Ético de IA, oficinas de IA
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Ação relacionada a Inteligência Artificial realizada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>
+                        <span class="cat-name">Produção Científica</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Artigo acadêmico, relato de experiência, PICIT, plano de iniciação científica, congresso, apresentação em evento científico
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Produção científica desenvolvida</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>
+                        <span class="cat-name">Produção Audiovisual</span>
+                        <span class="cat-area area-av">Audiovisual</span>
+                    </td>
+                    <td class="task-list">
+                        Gravação de vídeo, edição, pós-produção, renderização, publicação de vídeo, vídeo institucional, videoaula
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Material didático docente gravado</li>
+                            <li>Material didático editado/renderizado/publicado</li>
+                            <li>Vídeo institucional do Cefor produzido</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>
+                        <span class="cat-name">Evento / Transmissão</span>
+                        <span class="cat-area area-av">Audiovisual</span>
+                    </td>
+                    <td class="task-list">
+                        Transmissão ao vivo, suporte a evento presencial ou remoto, CONSUP, debate, posse, formatura, evento nacional, evento interno
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Evento transmitido</li>
+                            <li>Conselho Superior transmitido</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>
+                        <span class="cat-name">Libras Tradução</span>
+                        <span class="cat-area area-libras">Libras</span>
+                    </td>
+                    <td class="task-list">
+                        Tradução de editais, tradução de materiais didáticos, tradução de vídeos institucionais, revisão de tradução
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Edital traduzido para Libras</li>
+                            <li>Material didático traduzido para Libras</li>
+                            <li>Evento traduzido para Libras</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>
+                        <span class="cat-name">Libras Interpretação</span>
+                        <span class="cat-area area-libras">Libras</span>
+                    </td>
+                    <td class="task-list">
+                        Interpretação em evento ao vivo, interpretação em aula, interpretação em reunião, interpretação em evento externo, interpretação em banca
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Evento Interpretado em Libras</li>
+                            <li>Interpretação em evento externo realizada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>
+                        <span class="cat-name">Acessibilidade</span>
+                        <span class="cat-area area-libras">Libras</span>
+                    </td>
+                    <td class="task-list">
+                        Videobook em Libras, audiodescrição, atendimento Napne, materiais acessíveis, organização de vídeos em Libras no YouTube (playlists, tags)
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Videobook em Libras atualizado</li>
+                            <li>Atividade da comissão Napne realizada</li>
+                            <li>Atividades da comissão do repositório de vídeos em Libras realizada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>
+                        <span class="cat-name">Comissão</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Reunião de comissão, participação em NTE, NAC, MOOC, Nepgens, Comunicação, Material Didático, Repositório de Livros
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Atividade da Comissão NTE realizada</li>
+                            <li>Atividade da Comissão MOOC realizada</li>
+                            <li>Atividade da Comissão de Comunicação realizada</li>
+                            <li>Atividade da Comissão NAC realizada</li>
+                            <li>Atividade da Comissão Nepgens realizada</li>
+                            <li>Atividade da comissão de Política de Material Didático realizada</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>
+                        <span class="cat-name">Gestão / PGD</span>
+                        <span class="cat-area area-gestao">Gestão</span>
+                    </td>
+                    <td class="task-list">
+                        Elaboração do PGD trimestral, relatório de gestão, atividades administrativas da coordenação, SIGRH, ponto, planejamento estratégico
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>PGD trimestral elaborado</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>
+                        <span class="cat-name">Colaboração Institucional</span>
+                        <span class="cat-area area-transversal">Transversal</span>
+                    </td>
+                    <td class="task-list">
+                        Apoio técnico a outros campi, cooperação internacional, suporte a outras unidades do Ifes, parcerias externas
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Colaboração técnica realizada em outros campi ou instituições</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="highlight-row">
+                    <td>18</td>
+                    <td>
+                        <span class="cat-name">Demanda Extraordinária</span>
+                        <span class="cat-area area-todas">Uso controlado</span>
+                    </td>
+                    <td class="task-list">
+                        Demanda urgente não planejada que não se encaixa nas demais categorias. O assistente IA questionará se realmente não cabe em outra categoria antes de aceitar.
+                    </td>
+                    <td>
+                        <ul class="entrega-pgd">
+                            <li>Sem entrega fixa — vinculada caso a caso</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <footer>
+            <p><strong>Nota:</strong> A entrega "Sala modelo do Moodle lançada" pode ser vinculada a <em>Interface Digital</em> ou <em>MOOC</em> conforme o contexto.</p>
+            <p style="margin-top: 0.5rem;">Sistema de Gestão CGTE/Cefor — Documento gerado em 24/02/2026</p>
+        </footer>
+    </div>
+</body>
+</html>

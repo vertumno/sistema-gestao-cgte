@@ -5,7 +5,11 @@ export type KanboardTask = {
   column_id?: number | string;
   column_name?: string;
   owner_id?: number | string;
+  assignee_id?: number | string;
   project_id?: number | string;
+  date_creation?: number | string;
+  date_modification?: number | string;
+  date_completed?: number | string;
 };
 
 export type KanboardCategory = {
@@ -23,6 +27,8 @@ export type KanboardSubtask = {
   id: number | string;
   title: string;
   task_id: number | string;
+  status?: number | string;
+  state?: number | string;
 };
 
 export type TaxonomyCategory = {

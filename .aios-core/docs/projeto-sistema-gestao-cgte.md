@@ -265,8 +265,9 @@ Servidor executa tarefa
 **O que é:** Instância existente do Kanboard (board.cefor.ifes.edu.br), configurada com a nova taxonomia.
 
 **Configurações necessárias:**
-- Categorias padronizadas (12 categorias — ver seção 6)
-- Swimlanes por área (a definir: swimlanes vs boards separados)
+- Categorias padronizadas (18 categorias — ver seção 6)
+- Sem swimlanes — organização simplificada
+- 2 boards: "CGTE - Atividades" (principal) e "Informações Fixas e Recorrentes" (referência)
 - Colunas simplificadas: Backlog → Autorizado → Em andamento → Finalizado → Congelado
 - Tags para vinculação de projetos grandes
 
@@ -291,57 +292,45 @@ Servidor executa tarefa
 
 ## 6. Taxonomia e Categorização
 
-### 6.1 Modelo de Categorização em 2 Níveis
+### 6.1 Estrutura de Boards
 
-#### Nível 1: Área (via Swimlane ou Board)
+| Board | Função |
+|-------|--------|
+| **CGTE - Atividades** | Board principal — todas as tarefas do dia a dia, projetos e registros |
+| **Informações Fixas e Recorrentes** | Board de referência — links, documentos permanentes, informações consultivas |
 
-| Área | Descrição |
-|------|-----------|
-| **Design** | Design educacional, comunicação visual, identidade visual, site, base de conhecimento |
-| **Libras** | Tradução, interpretação, acessibilidade, Videobook |
-| **Audiovisual** | Gravação, edição, transmissão, produção de vídeo |
-| **Gestão** | Administrativo, PGD, comissões, planejamento |
+**Decisões:**
+- Sem swimlanes
+- Sem board separado para audiovisual (futuro)
 
-#### Nível 2: Tipo de Trabalho (via Categoria do Kanboard)
+### 6.2 Categorias do Kanboard (18 categorias)
 
-| # | Categoria | Descrição | Entregas PGD Relacionadas |
-|---|-----------|-----------|---------------------------|
-| 1 | **Comunicação Visual** | Banner, card, campanha, peça gráfica, material para redes sociais, datas comemorativas | Conteúdo para Comunicação Visual elaborado |
-| 2 | **Design de Curso / ID Visual** | Identidade visual de curso, padrões visuais, layout de sala Moodle, separadores | Recurso didático visual criado; Design educacional institucional implementado |
-| 3 | **Site e Sistemas** | Site do Cefor, base de conhecimento, interface Moodle, páginas web, sistemas digitais | Atualização em Interface digital realizada; Informação em sistema institucional atualizada |
-| 4 | **MOOC** | Checklist técnico de cursos, lançamento, atualização de cursos na vitrine, configurações | Checklist de Curso MOOC realizada; Curso MOOC atualizado |
-| 5 | **Formação e Capacitação** | Oficina, palestra, workshop, trilha, SOS Moodle, capacitação interna ou externa | Formação ministrada |
-| 6 | **Conteúdo e Publicação** | Tutorial, artigo para base de conhecimento, manual, podcast, guia prático | Tutorial criado; Podcast publicado |
-| 7 | **Inteligência Artificial** | Papo com IAIÁ, GPTs pedagógicos, formações de IA, prototipagem, Portal IA | Ação relacionada a Inteligência Artificial realizada |
-| 8 | **Produção Audiovisual** | Gravação de vídeo, edição, pós-produção, transmissão ao vivo, produção de vídeo institucional | Material didático gravado/editado/publicado; Evento transmitido; Conselho Superior transmitido |
-| 9 | **Tradução e Interpretação Libras** | Inserção de vídeos em Libras em cursos, tradução de editais, interpretação em eventos, tradução de materiais | Curso MOOC traduzido; Edital traduzido; Evento interpretado/traduzido; Material didático traduzido |
-| 10 | **Acessibilidade** | Videobook, audiodescrição, atendimento Napne, materiais acessíveis | Videobook em Libras atualizado; Atividade da comissão Napne realizada |
-| 11 | **Comissão e Colegiado** | Reunião de comissão (NTE, NAC, MOOC, Nepgens, Comunicação, Material Didático), atividades colegiadas | Atividade da Comissão X realizada |
-| 12 | **Produção Científica e Pesquisa** | Artigo acadêmico, relato de experiência, PICIT, congressos, cooperação institucional | Produção científica desenvolvida; Colaboração técnica em outros campi |
+| # | Categoria | Tipos de Tarefas | Entregas PGD Relacionadas |
+|---|-----------|-----------------|---------------------------|
+| 1 | **Comunicação Visual** | Banner, card para redes sociais, campanha, peça gráfica, thumbnail, material para datas comemorativas, kits de divulgação, materiais institucionais físicos e digitais | Conteúdo para Comunicação Visual elaborado |
+| 2 | **Programação Visual Educacional** | Identidade visual de curso, padrões visuais de sala Moodle, separadores, topos de sala virtual, layout de sala, padronização estética, programação visual de materiais educacionais | Recurso didático visual criado; Design educacional institucional implementado; Repositório de Vídeos implementado |
+| 3 | **Conteúdo Digital** | Publicação de notícias no site, publicação de banners, atualização de informações em páginas e sistemas, publicação de artigo na Base de Conhecimento, atualização de conteúdo em plataformas institucionais | Informação em sistema institucional atualizada |
+| 4 | **Interface Digital** | Mudanças de interface, criação de novos códigos e experiências do usuário, reformulação de sistemas (Base de Conhecimento, Vitrine MOOC), redesign de interface Moodle, design de interface, certificados digitais, desenvolvimento de sistemas digitais internos | Atualização em Interface digital realizada; Repositório de Livros atualizado |
+| 5 | **Formação e Capacitação** | Oficina, palestra, workshop, trilha, jornada, SOS Moodle, capacitação interna ou externa, formação de IA, formação de Libras | Formação ministrada |
+| 6 | **MOOC** | Checklist técnico de curso MOOC, lançamento de curso, atualização de cursos na vitrine, configurações de sala MOOC, inserção de vídeos em Libras em cursos MOOC | Checklist de Curso MOOC realizada; Curso MOOC atualizado; Curso MOOC traduzido |
+| 7 | **Conteúdo Educacional** | Tutorial, manual, podcast, guia prático, e-book instrucional, relatório técnico | Tutorial criado; Podcast publicado |
+| 8 | **Inteligência Artificial** | Papo com IA.IÁ, GPTs pedagógicos, formações de IA, prototipagem, Portal IA, Manual de Uso Ético de IA, oficinas de IA | Ação relacionada a Inteligência Artificial realizada |
+| 9 | **Produção Científica** | Artigo acadêmico, relato de experiência, PICIT, plano de iniciação científica, congresso, apresentação em evento científico | Produção científica desenvolvida |
+| 10 | **Produção Audiovisual** | Gravação de vídeo, edição, pós-produção, renderização, publicação de vídeo, vídeo institucional, videoaula | Material didático docente gravado; Material didático editado/renderizado/publicado; Vídeo institucional do Cefor produzido |
+| 11 | **Evento / Transmissão** | Transmissão ao vivo, suporte a evento presencial ou remoto, CONSUP, debate, posse, formatura, evento nacional, evento interno | Evento transmitido; Conselho Superior transmitido |
+| 12 | **Libras Tradução** | Tradução de editais, tradução de materiais didáticos, tradução de vídeos institucionais, revisão de tradução | Edital traduzido para Libras; Material didático traduzido para Libras; Evento traduzido para Libras |
+| 13 | **Libras Interpretação** | Interpretação em evento ao vivo, interpretação em aula, interpretação em reunião, interpretação em evento externo, interpretação em banca | Evento Interpretado em Libras; Interpretação em evento externo realizada |
+| 14 | **Acessibilidade** | Videobook em Libras, audiodescrição, atendimento Napne, materiais acessíveis, organização de vídeos em Libras no YouTube | Videobook em Libras atualizado; Atividade da comissão Napne realizada; Atividades da comissão do repositório de vídeos em Libras realizada |
+| 15 | **Comissão** | Reunião de comissão, participação em NTE, NAC, MOOC, Nepgens, Comunicação, Material Didático, Repositório de Livros | Atividade da Comissão NTE realizada; Atividade da Comissão MOOC realizada; Atividade da Comissão de Comunicação realizada; Atividade da Comissão NAC realizada; Atividade da Comissão Nepgens realizada; Atividade da comissão de Política de Material Didático realizada |
+| 16 | **Gestão / PGD** | Elaboração do PGD trimestral, relatório de gestão, atividades administrativas da coordenação, SIGRH, ponto, planejamento estratégico | PGD trimestral elaborado |
+| 17 | **Colaboração Institucional** | Apoio técnico a outros campi, cooperação internacional, suporte a outras unidades do Ifes, parcerias externas | Colaboração técnica realizada em outros campi ou instituições |
+| 18 | **Demanda Extraordinária** | Demanda urgente não planejada que não se encaixa nas demais categorias. Uso controlado — o assistente IA questiona se realmente não cabe em outra categoria | Sem entrega fixa — vinculada caso a caso |
 
-### 6.2 Mapeamento Completo: Categoria → Entregas PGD
-
-| Categoria | Entregas PGD |
-|-----------|-------------|
-| Comunicação Visual | Conteúdo para Comunicação Visual elaborado |
-| Design de Curso / ID Visual | Recurso didático visual criado; Design educacional institucional implementado; Repositório de Vídeos implementado |
-| Site e Sistemas | Atualização em Interface digital realizada; Informação em sistema institucional atualizada; Repositório de Livros atualizado |
-| MOOC | Checklist de Curso MOOC realizada; Curso MOOC atualizado |
-| Formação e Capacitação | Formação ministrada |
-| Conteúdo e Publicação | Tutorial criado; Podcast publicado |
-| Inteligência Artificial | Ação relacionada a Inteligência Artificial realizada |
-| Produção Audiovisual | Material didático docente gravado; Material didático editado/renderizado/publicado; Evento transmitido; Conselho Superior transmitido; Vídeo institucional do Cefor produzido |
-| Tradução e Interpretação Libras | Curso MOOC traduzido; Edital traduzido para Libras; Evento interpretado em Libras; Evento traduzido para Libras; Material didático traduzido para Libras; Interpretação em evento externo realizada |
-| Acessibilidade | Videobook em Libras atualizado; Atividade da comissão Napne realizada; Atividades da comissão do repositório de vídeos em Libras realizada |
-| Comissão e Colegiado | Atividade da Comissão NTE realizada; Atividade da Comissão MOOC realizada; Atividade da Comissão de Comunicação realizada; Atividade da Comissão NAC realizada; Atividade da Comissão Nepgens realizada; Atividade da comissão de Política de Material Didático realizada |
-| Produção Científica e Pesquisa | Produção científica desenvolvida; Colaboração técnica realizada em outros campi ou instituições |
-
-### 6.3 Entregas PGD Transversais (não vinculadas a uma categoria)
+### 6.3 Entregas PGD Transversais
 
 | Entrega PGD | Tratamento |
 |-------------|-----------|
-| PGD trimestral elaborado | Gerado automaticamente como atividade de gestão |
-| Sala modelo do Moodle lançada | Categoria "Site e Sistemas" ou "MOOC" conforme contexto |
+| Sala modelo do Moodle lançada | Categoria "Interface Digital" ou "MOOC" conforme contexto |
 
 ### 6.4 Regra de Granularidade: O que é um Card?
 
@@ -440,7 +429,7 @@ Assistente:
   Registrado como tarefa finalizada.
 
   Card: "Interpretação CONSUP #2 - Fev/2026"
-  Categoria: Tradução e Interpretação Libras
+  Categoria: Tradução e Libras Interpretação
   Área: Libras
   Status: Finalizado
   Entrega PGD: Conselho Superior transmitido
@@ -501,7 +490,7 @@ REGRAS DE CATEGORIZAÇÃO:
 1. Cada card = 1 unidade de trabalho (1 pessoa, 1 entregável, 1 frase)
 2. NUNCA aceite cards genéricos ("atividades extraordinárias de março")
 3. Projetos grandes → sugira subtarefas ou cards separados com tag
-4. SEMPRE sugira a categoria correta (das 12 disponíveis)
+4. SEMPRE sugira a categoria correta (das 18 disponíveis)
 5. SEMPRE vincule à entrega PGD correspondente
 6. Identifique se é algo A FAZER ou algo JÁ FEITO
 
@@ -513,12 +502,12 @@ REGRAS DE ESTRUTURAÇÃO:
 11. Para projetos → sugira subtarefas ordenadas
 
 CONTEXTO DISPONÍVEL:
-- 12 categorias com mapeamento para entregas PGD
+- 18 categorias com mapeamento para entregas PGD
 - Lista de entregas PGD por área
 - Pessoas da equipe e suas áreas
 - Dados do trimestre atual (tarefas por categoria)
 
-CATEGORIAS: [lista das 12 categorias]
+CATEGORIAS: [lista das 18 categorias]
 ENTREGAS PGD: [lista das 29 entregas com mapeamento]
 ÁREAS: Design, Libras, Audiovisual, Gestão
 PESSOAS: [lista de servidores da CGTE com áreas]
@@ -531,14 +520,12 @@ PESSOAS: [lista de servidores da CGTE com áreas]
 ### 8.1 Entidades e Relacionamentos
 
 ```
-ÁREA (Swimlane/Board)
+BOARD
   │
-  ├── Design
-  ├── Libras
-  ├── Audiovisual
-  └── Gestão
+  ├── CGTE - Atividades (principal)
+  └── Informações Fixas e Recorrentes (referência)
 
-CATEGORIA (12 tipos)
+CATEGORIA (18 tipos)
   │
   └──→ mapeada para 1..N ENTREGAS PGD
 
@@ -549,7 +536,7 @@ ENTREGA PGD (29 entregas por trimestre)
 CARD (Tarefa no Kanboard)
   │
   ├── título (texto padronizado)
-  ├── categoria (1 das 12)
+  ├── categoria (1 das 17)
   ├── área (swimlane)
   ├── responsável (pessoa)
   ├── status (coluna)
@@ -642,7 +629,7 @@ N cards Kanboard  ──→  1 Categoria  ──→  1..N Entregas PGD
 
 | # | Entregável | Descrição | Prioridade |
 |---|-----------|-----------|------------|
-| 1 | Kanboard configurado | 12 categorias, swimlanes por área, colunas padronizadas | P0 |
+| 1 | Kanboard configurado | 18 categorias, 2 boards, colunas padronizadas | P0 |
 | 2 | Assistente Inteligente v1 | Interface web + IA para criação de cards guiada | P0 |
 | 3 | Teste piloto com Design | Elton e Marcos testam o fluxo por 2 semanas | P0 |
 
@@ -652,7 +639,7 @@ N cards Kanboard  ──→  1 Categoria  ──→  1..N Entregas PGD
 |---|-----------|-----------|
 | 4 | Dashboard básico | Visão de tarefas por categoria e período |
 | 5 | Relatório PGD formatado | Texto pronto para copiar no Petrvs |
-| 6 | Expansão para Audiovisual | Board/swimlane para equipe audiovisual |
+| 6 | Expansão para Audiovisual | Onboarding da equipe audiovisual no Kanboard |
 
 ### 10.3 Fase 3 (Junho+/2026)
 
@@ -669,7 +656,7 @@ N cards Kanboard  ──→  1 Categoria  ──→  1..N Entregas PGD
 | # | Risco | Probabilidade | Impacto | Mitigação |
 |---|-------|--------------|---------|-----------|
 | R1 | Equipe audiovisual resistir à adoção | Alta | Médio | Diretriz da coordenação: "só conta o que está no Kanboard". Gamificação/desafio inicial. |
-| R2 | 12 categorias serem complexas demais | Média | Alto | Começar com as mais usadas. Assistente IA reduz a carga cognitiva. |
+| R2 | 18 categorias causarem confusão | Baixa | Médio | Assistente IA sugere automaticamente a categoria correta. Reduz carga cognitiva do servidor. |
 | R3 | Servidores continuarem usando cards genéricos | Média | Alto | Assistente recusa cards genéricos e orienta. Revisão periódica pela gestão. |
 | R4 | API do Kanboard ser limitada | Baixa | Alto | API JSON-RPC é robusta (13 endpoints de tasks). Testar no início. |
 | R5 | IA categorizar errado | Média | Médio | Etapa de refinamento antes de publicar. Prompt bem definido com exemplos. |
@@ -682,8 +669,8 @@ N cards Kanboard  ──→  1 Categoria  ──→  1..N Entregas PGD
 
 | # | Decisão | Opções | Responsável | Prazo |
 |---|---------|--------|-------------|-------|
-| DP1 | Swimlanes vs boards separados para Audiovisual | A) Swimlanes no mesmo board; B) Board separado com mesmas categorias | Marcos + Elton | Antes do MVP |
-| DP2 | Validação final das 12 categorias | Revisar se cobrem tudo ou precisam ajustes | Marcos + Elton | Antes do MVP |
+| DP1 | ~~Swimlanes vs boards separados~~ | **DECIDIDO (24/02/2026):** Sem swimlanes. 2 boards: "CGTE - Atividades" + "Informações Fixas e Recorrentes" | Marcos + Elton | ~~Antes do MVP~~ Resolvido |
+| DP2 | ~~Validação das categorias~~ | **DECIDIDO (24/02/2026):** 18 categorias aprovadas por Marcos e Elton. Cobertura 100% das 29 entregas PGD | Marcos + Elton | ~~Antes do MVP~~ Resolvido |
 | DP3 | Stack técnica do Assistente | Frontend, backend, modelo de IA, hospedagem | @architect | Próxima fase |
 | DP4 | Hospedagem da solução | Servidor interno Cefor vs cloud (Vercel, etc.) | @architect + Elton | Próxima fase |
 | DP5 | Como lidar com dados históricos de 2025 | A) Ignorar; B) Migrar/recategorizar | Marcos + Elton | Antes do MVP |
@@ -722,7 +709,7 @@ N cards Kanboard  ──→  1 Categoria  ──→  1..N Entregas PGD
 | `searchTasks` | Buscar tarefas por filtro |
 | `getAllCategories` | Listar categorias |
 | `createCategory` | Criar categoria na configuração inicial |
-| `getActiveSwimlanes` | Listar áreas |
+| `getProjectById` | Obter dados do board/projeto |
 | `getAllSubtasks` | Extrair subtarefas de projetos |
 
 ---
