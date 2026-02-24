@@ -1,0 +1,135 @@
+{
+  "categorias": [
+    {
+      "categoryId": 1,
+      "categoryName": "Comunicacao Visual",
+      "area": "Design",
+      "entregasPGD": ["conteudo-comunicacao-visual-elaborado"]
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Programacao Visual Educacional",
+      "area": "Design",
+      "entregasPGD": [
+        "recurso-didatico-visual-criado",
+        "design-educacional-institucional-implementado",
+        "repositorio-videos-implementado"
+      ]
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Conteudo Digital",
+      "area": "Transversal",
+      "entregasPGD": ["informacao-sistema-institucional-atualizada"]
+    },
+    {
+      "categoryId": 4,
+      "categoryName": "Interface Digital",
+      "area": "Design",
+      "entregasPGD": ["atualizacao-interface-digital-realizada", "repositorio-livros-atualizado"]
+    },
+    {
+      "categoryId": 5,
+      "categoryName": "Formacao e Capacitacao",
+      "area": "Transversal",
+      "entregasPGD": ["formacao-ministrada"]
+    },
+    {
+      "categoryId": 6,
+      "categoryName": "MOOC",
+      "area": "Design",
+      "entregasPGD": ["checklist-curso-mooc-realizada", "curso-mooc-atualizado", "curso-mooc-traduzido"]
+    },
+    {
+      "categoryId": 7,
+      "categoryName": "Conteudo Educacional",
+      "area": "Transversal",
+      "entregasPGD": ["tutorial-criado", "podcast-publicado"]
+    },
+    {
+      "categoryId": 8,
+      "categoryName": "Inteligencia Artificial",
+      "area": "Transversal",
+      "entregasPGD": ["acao-inteligencia-artificial-realizada"]
+    },
+    {
+      "categoryId": 9,
+      "categoryName": "Producao Cientifica",
+      "area": "Transversal",
+      "entregasPGD": ["producao-cientifica-desenvolvida"]
+    },
+    {
+      "categoryId": 10,
+      "categoryName": "Producao Audiovisual",
+      "area": "Audiovisual",
+      "entregasPGD": [
+        "material-didatico-docente-gravado",
+        "material-didatico-editado-renderizado-publicado",
+        "video-institucional-cefor-produzido"
+      ]
+    },
+    {
+      "categoryId": 11,
+      "categoryName": "Evento / Transmissao",
+      "area": "Audiovisual",
+      "entregasPGD": ["evento-transmitido", "conselho-superior-transmitido"]
+    },
+    {
+      "categoryId": 12,
+      "categoryName": "Libras Traducao",
+      "area": "Libras",
+      "entregasPGD": [
+        "edital-traduzido-libras",
+        "material-didatico-traduzido-libras",
+        "evento-traduzido-libras"
+      ]
+    },
+    {
+      "categoryId": 13,
+      "categoryName": "Libras Interpretacao",
+      "area": "Libras",
+      "entregasPGD": ["evento-interpretado-libras", "interpretacao-evento-externo-realizada"]
+    },
+    {
+      "categoryId": 14,
+      "categoryName": "Acessibilidade",
+      "area": "Libras",
+      "entregasPGD": [
+        "videobook-libras-atualizado",
+        "atividade-comissao-napne-realizada",
+        "atividade-comissao-repositorio-videos-libras-realizada"
+      ]
+    },
+    {
+      "categoryId": 15,
+      "categoryName": "Comissao",
+      "area": "Transversal",
+      "entregasPGD": [
+        "atividade-comissao-nte-realizada",
+        "atividade-comissao-mooc-realizada",
+        "atividade-comissao-comunicacao-realizada",
+        "atividade-comissao-nac-realizada",
+        "atividade-comissao-nepgens-realizada",
+        "atividade-comissao-politica-material-didatico-realizada"
+      ]
+    },
+    {
+      "categoryId": 16,
+      "categoryName": "Gestao / PGD",
+      "area": "Gestao",
+      "entregasPGD": ["pgd-trimestral-elaborado"]
+    },
+    {
+      "categoryId": 17,
+      "categoryName": "Colaboracao Institucional",
+      "area": "Transversal",
+      "entregasPGD": ["colaboracao-tecnica-outros-campi-ou-instituicoes"]
+    },
+    {
+      "categoryId": 18,
+      "categoryName": "Demanda Extraordinaria",
+      "area": "Uso controlado",
+      "entregasPGD": ["sem-entrega-fixa-vinculada-caso-a-caso"]
+    }
+  ]
+}
