@@ -1,0 +1,38 @@
+[
+  {
+    "userId": "marquito",
+    "userName": "Marcos",
+    "area": "Gestao",
+    "color": "#d97706"
+  },
+  {
+    "userId": "1627042",
+    "userName": "Elton",
+    "area": "Gestao",
+    "color": "#2563eb"
+  },
+  {
+    "userId": "3672522",
+    "userName": "Juliana",
+    "area": "Design",
+    "color": "#7c3aed"
+  },
+  {
+    "userId": "1163935",
+    "userName": "Andreia",
+    "area": "Libras",
+    "color": "#c2410c"
+  },
+  {
+    "userId": "1896405",
+    "userName": "Monia",
+    "area": "Audiovisual",
+    "color": "#dc2626"
+  },
+  {
+    "userId": "raquelfortunato",
+    "userName": "Raquel",
+    "area": "Gestao",
+    "color": "#eab308"
+  }
+]
