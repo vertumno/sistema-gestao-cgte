@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { AreaFilter } from "@/components/dashboard/area-filter";
 import { CategoryChart } from "@/components/dashboard/category-chart";
 import { CategoryTable } from "@/components/dashboard/category-table";
+import { CsvImportCard } from "@/components/dashboard/csv-import-card";
 import { KpiGrid } from "@/components/dashboard/kpi-grid";
 import { PeriodSelector } from "@/components/dashboard/period-selector";
 import { PersonChart } from "@/components/dashboard/person-chart";
@@ -67,9 +68,13 @@ export default function DashboardPage() {
 
   if (error || !data) {
     return (
-      <p className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700" role="alert">
-        {error ?? "Erro inesperado."}
-      </p>
+      <section className="space-y-4">
+        <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700" role="alert">
+          <p className="font-semibold">Erro ao carregar dados</p>
+          <p className="text-sm mt-1">{error ?? "Erro inesperado."}</p>
+        </div>
+        <CsvImportCard />
+      </section>
     );
   }
 
