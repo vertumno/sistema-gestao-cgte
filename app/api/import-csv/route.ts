@@ -2,12 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { parse } from "csv-parse/sync";
 
 interface CsvRow {
-  task_id: string;
+  [key: string]: string | undefined;
+}
+
+interface NormalizedTask {
+  taskId: string;
   category: string;
-  person_assigned: string;
+  personAssigned: string;
   status: string;
-  date_completed?: string;
-  effort_hours?: string;
+  dateCompleted?: string;
   description: string;
 }
 
@@ -24,6 +27,62 @@ interface Task {
 const VALID_CATEGORIES = ["Design", "Audiovisual", "Libras", "Gestao"];
 const VALID_STATUSES = ["finalizada", "emAndamento", "backlog"];
 
+// Mapeamento de colunas Kanboard → campos esperados
+function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
+  // Encontrar valores com flexibilidade de nomes
+  const taskId =
+    row["ID da Tarefa"] ||
+    row["id da tarefa"] ||
+    row["task_id"] ||
+    row["Task ID"] ||
+    row["ID"];
+
+  const category =
+    row["Categoria"] ||
+    row["categoria"] ||
+    row["category"] ||
+    row["Category"];
+
+  const personAssigned =
+    row["Nome do designado"] ||
+    row["nome do designado"] ||
+    row["person_assigned"] ||
+    row["Pessoa Atribuída"] ||
+    row["Assigned To"] ||
+    row["Usuário designado"];
+
+  const status =
+    row["Status"] ||
+    row["status"] ||
+    row["Status da Tarefa"];
+
+  const dateCompleted =
+    row["Data da finalização"] ||
+    row["data da finalização"] ||
+    row["Date Completed"] ||
+    row["date_completed"];
+
+  const description =
+    row["Título"] ||
+    row["título"] ||
+    row["description"] ||
+    row["Description"] ||
+    row["Task Title"];
+
+  if (!taskId || !category || !personAssigned || !status || !description) {
+    return null;
+  }
+
+  return {
+    taskId,
+    category,
+    personAssigned,
+    status,
+    dateCompleted,
+    description,
+  };
+}
+
 function normalizeStatus(status: string): "finalizada" | "emAndamento" | "backlog" {
   const normalized = status.toLowerCase().trim();
 
@@ -37,12 +96,12 @@ function normalizeStatus(status: string): "finalizada" | "emAndamento" | "backlo
   return "backlog";
 }
 
-function validateRow(row: CsvRow, rowNumber: number): { valid: boolean; error?: string } {
-  if (!row.task_id) {
+function validateRow(row: NormalizedTask, rowNumber: number): { valid: boolean; error?: string } {
+  if (!row.taskId) {
     return { valid: false, error: `Linha ${rowNumber}: task_id é obrigatório` };
   }
 
-  if (isNaN(parseInt(row.task_id, 10))) {
+  if (isNaN(parseInt(row.taskId, 10))) {
     return { valid: false, error: `Linha ${rowNumber}: task_id deve ser um número` };
   }
 
@@ -50,27 +109,20 @@ function validateRow(row: CsvRow, rowNumber: number): { valid: boolean; error?: 
     return { valid: false, error: `Linha ${rowNumber}: category é obrigatória` };
   }
 
-  if (!VALID_CATEGORIES.includes(row.category)) {
-    return {
-      valid: false,
-      error: `Linha ${rowNumber}: category inválida. Válidas: ${VALID_CATEGORIES.join(", ")}`,
-    };
-  }
+  // Aceitar qualquer categoria (será usada como está)
+  // if (!VALID_CATEGORIES.includes(row.category)) {
+  //   return {
+  //     valid: false,
+  //     error: `Linha ${rowNumber}: category inválida. Válidas: ${VALID_CATEGORIES.join(", ")}`,
+  //   };
+  // }
 
-  if (!row.person_assigned) {
+  if (!row.personAssigned) {
     return { valid: false, error: `Linha ${rowNumber}: person_assigned é obrigatório` };
   }
 
   if (!row.status) {
     return { valid: false, error: `Linha ${rowNumber}: status é obrigatório` };
-  }
-
-  const normalizedStatus = normalizeStatus(row.status);
-  if (!VALID_STATUSES.includes(normalizedStatus)) {
-    return {
-      valid: false,
-      error: `Linha ${rowNumber}: status "${row.status}" não é válido. Use: finalizada, emAndamento, backlog`,
-    };
   }
 
   return { valid: true };
@@ -119,19 +171,28 @@ export async function POST(request: NextRequest): Promise<Response> {
     const tasks: Task[] = [];
 
     records.forEach((row: CsvRow, index: number) => {
-      const validation = validateRow(row, index + 2); // +2 porque começa na linha 2 (depois do header)
+      const normalized = mapKanboardColumns(row);
+
+      if (!normalized) {
+        validationErrors.push(
+          `Linha ${index + 2}: Colunas obrigatórias não encontradas (ID da Tarefa, Categoria, Nome do designado, Status, Título)`
+        );
+        return;
+      }
+
+      const validation = validateRow(normalized, index + 2); // +2 porque começa na linha 2 (depois do header)
 
       if (!validation.valid) {
         validationErrors.push(validation.error || "Erro desconhecido");
       } else {
         tasks.push({
-          id: parseInt(row.task_id, 10),
-          title: row.description,
-          category: row.category,
-          assignee: row.person_assigned,
-          status: normalizeStatus(row.status),
-          dateCompleted: row.date_completed ? new Date(row.date_completed) : null,
-          effortHours: parseInt(row.effort_hours || "0", 10),
+          id: parseInt(normalized.taskId, 10),
+          title: normalized.description,
+          category: normalized.category,
+          assignee: normalized.personAssigned,
+          status: normalizeStatus(normalized.status),
+          dateCompleted: normalized.dateCompleted ? new Date(normalized.dateCompleted) : null,
+          effortHours: 0,
         });
       }
     });
