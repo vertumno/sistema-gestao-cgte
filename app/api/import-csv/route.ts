@@ -1,190 +1,141 @@
 import { NextRequest, NextResponse } from "next/server";
 import { parse } from "csv-parse/sync";
+import type { TeamMember } from "@/lib/metrics";
+import {
+  getPeriodRange,
+  getPreviousPeriodRange,
+  getLastNMonths,
+  aggregateByCategory,
+  aggregateByPerson,
+  aggregateByMonth,
+  calculateKpis,
+  filterByPeriod,
+  filterByArea
+} from "@/lib/metrics";
+import { getTaxonomy } from "@/lib/taxonomy";
+import teamMembers from "@/config/team-members.json";
+import type { DashboardTaskItem, AreaFilter, PeriodType } from "@/types/dashboard";
+import type { TaxonomyConfig } from "@/types/kanboard";
 
 interface CsvRow {
   [key: string]: string | undefined;
 }
 
-interface NormalizedTask {
-  taskId: string;
-  category: string;
-  personAssigned: string;
-  status: string;
-  column: string;
-  dateCompleted?: string;
-  description: string;
-}
+// ---------------------------------------------------------------------------
+// CSV Column Mapping
+// ---------------------------------------------------------------------------
 
-interface Task {
-  id: number;
-  title: string;
-  category: string;
-  assignee: string;
-  status: "finalizada" | "emAndamento" | "backlog";
-  dateCompleted: Date | null;
-  effortHours: number;
-}
-
-/**
- * Mapeia colunas do CSV exportado pelo Kanboard para campos internos.
- * Campos obrigatórios: ID da Tarefa, Nome do designado, Status, Título.
- * Categoria é opcional (usa "Sem categoria" como fallback).
- */
-function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
-  const taskId =
-    row["ID da Tarefa"] ||
-    row["id da tarefa"] ||
-    row["task_id"] ||
-    row["Task ID"] ||
-    row["ID"];
-
-  const category =
-    row["Categoria"] ||
-    row["categoria"] ||
-    row["category"] ||
-    row["Category"] ||
-    "";
-
-  const personAssigned =
-    row["Nome do designado"] ||
-    row["nome do designado"] ||
-    row["person_assigned"] ||
-    row["Pessoa Atribuída"] ||
-    row["Assigned To"] ||
-    row["Usuário designado"];
-
-  const status =
-    row["Status"] ||
-    row["status"] ||
-    row["Status da Tarefa"];
-
-  const column =
-    row["Coluna"] ||
-    row["coluna"] ||
-    row["Column"] ||
-    "";
-
-  const dateCompleted =
-    row["Data da finalização"] ||
-    row["data da finalização"] ||
-    row["Date Completed"] ||
-    row["date_completed"];
-
-  const description =
-    row["Título"] ||
-    row["título"] ||
-    row["description"] ||
-    row["Description"] ||
-    row["Task Title"];
-
-  // Apenas taskId, personAssigned, status e description são obrigatórios
-  if (!taskId || !personAssigned || !status || !description) {
-    return null;
+function getField(row: CsvRow, ...keys: string[]): string {
+  for (const key of keys) {
+    const value = row[key];
+    if (value !== undefined && value !== null && value.trim() !== "") return value.trim();
   }
+  return "";
+}
 
-  return {
-    taskId,
-    category: category || "Sem categoria",
-    personAssigned,
-    status,
-    column,
-    dateCompleted,
-    description,
-  };
+function normalizeText(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
 }
 
 /**
- * Normaliza o status da tarefa combinando a coluna "Status" e "Coluna" do Kanboard.
- *
- * Kanboard usa dois campos:
- * - "Status": Finalizado | Abrir
- * - "Coluna": Finalizado | Em andamento | Início autorizado | Em aprovação | Backlog
- *
- * Mapeamento:
- *   Status="Finalizado" → finalizada
- *   Coluna="Finalizado" → finalizada
- *   Coluna="Em andamento" ou "Em aprovação" ou "Início autorizado" → emAndamento
- *   Tudo mais → backlog
+ * Map Kanboard status + column to our internal status.
  */
-function normalizeStatus(status: string, column: string): "finalizada" | "emAndamento" | "backlog" {
-  const s = status.toLowerCase().trim();
-  const c = column.toLowerCase().trim();
+function resolveStatus(status: string, column: string): DashboardTaskItem["status"] {
+  const s = normalizeText(status);
+  const c = normalizeText(column);
 
-  // Status "Finalizado" é definitivo
-  if (s === "finalizado" || s.includes("finalizado") || s.includes("done")) {
-    return "finalizada";
-  }
-
-  // Coluna "Finalizado" também indica tarefa concluída
-  if (c === "finalizado" || c.includes("finalizado")) {
-    return "finalizada";
-  }
-
-  // Colunas que indicam trabalho em progresso
-  if (
-    c.includes("andamento") ||
-    c.includes("aprovação") ||
-    c.includes("autorizado") ||
-    c.includes("progress")
-  ) {
-    return "emAndamento";
-  }
-
-  // Status "Abrir" com coluna de trabalho ativo
-  if (s === "abrir" || s === "open") {
-    return "emAndamento";
-  }
-
+  if (s.includes("finalizado") || c.includes("finalizado")) return "finalizada";
+  if (c.includes("andamento") || c.includes("aprovacao") || c.includes("autorizado")) return "emAndamento";
+  if (s === "abrir") return "emAndamento";
   return "backlog";
 }
 
-function validateRow(row: NormalizedTask, rowNumber: number): { valid: boolean; error?: string } {
-  if (!row.taskId) {
-    return { valid: false, error: `Linha ${rowNumber}: ID da Tarefa é obrigatório` };
-  }
-
-  if (isNaN(parseInt(row.taskId, 10))) {
-    return { valid: false, error: `Linha ${rowNumber}: ID da Tarefa deve ser um número` };
-  }
-
-  if (!row.personAssigned) {
-    return { valid: false, error: `Linha ${rowNumber}: Nome do designado é obrigatório` };
-  }
-
-  if (!row.status) {
-    return { valid: false, error: `Linha ${rowNumber}: Status é obrigatório` };
-  }
-
-  if (!row.description) {
-    return { valid: false, error: `Linha ${rowNumber}: Título é obrigatório` };
-  }
-
-  return { valid: true };
+/**
+ * Parse Kanboard date format "DD/MM/YYYY HH:MM" to ISO string.
+ */
+function parseDate(dateStr: string): string | null {
+  if (!dateStr) return null;
+  const m = dateStr.match(/^(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})$/);
+  if (!m) return null;
+  const [, day, month, year, hours, minutes] = m;
+  return new Date(
+    parseInt(year, 10),
+    parseInt(month, 10) - 1,
+    parseInt(day, 10),
+    parseInt(hours, 10),
+    parseInt(minutes, 10)
+  ).toISOString();
 }
 
 /**
- * Converte data no formato Kanboard "DD/MM/YYYY HH:MM" para Date.
+ * Map Kanboard category name to the taxonomy categoryId.
+ * Falls back to id 18 (Demanda Extraordinaria) if no match.
  */
-function parseKanboardDate(dateStr: string | undefined): Date | null {
-  if (!dateStr || dateStr.trim() === "") return null;
+function resolveCategoryId(categoryName: string, taxonomy: TaxonomyConfig): number {
+  if (!categoryName) return 18;
 
-  // Formato: "24/02/2026 10:57"
-  const match = dateStr.match(/^(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})$/);
-  if (match) {
-    const [, day, month, year, hours, minutes] = match;
-    return new Date(
-      parseInt(year, 10),
-      parseInt(month, 10) - 1,
-      parseInt(day, 10),
-      parseInt(hours, 10),
-      parseInt(minutes, 10)
-    );
+  const normalized = normalizeText(categoryName);
+
+  for (const cat of taxonomy.categorias) {
+    if (normalizeText(cat.categoryName) === normalized) return cat.categoryId;
   }
 
-  // Fallback: tentar parse nativo
-  const parsed = new Date(dateStr);
-  return isNaN(parsed.getTime()) ? null : parsed;
+  // Partial match: check if taxonomy name is contained in CSV name or vice-versa
+  for (const cat of taxonomy.categorias) {
+    const catNorm = normalizeText(cat.categoryName);
+    if (normalized.includes(catNorm) || catNorm.includes(normalized)) return cat.categoryId;
+  }
+
+  // Map known Kanboard prefixed categories
+  const knownMappings: Record<string, number> = {
+    "x_cso do cefor": 1,         // Comunicacao Visual → CSO
+    "x_salas virtuais": 6,        // MOOC (salas virtuais)
+    "x_recurso educacional": 7,   // Conteudo Educacional
+  };
+
+  for (const [key, id] of Object.entries(knownMappings)) {
+    if (normalized.includes(normalizeText(key))) return id;
+  }
+
+  return 18; // Demanda Extraordinaria
 }
+
+/**
+ * Map Kanboard user ID to team member.
+ */
+function resolveTeamMember(
+  userId: string,
+  userName: string,
+  members: TeamMember[]
+): { userId: string; userName: string; area: DashboardTaskItem["area"]; color: string } {
+  const normalized = userId.toLowerCase().trim();
+  const member = members.find((m) => m.userId.toLowerCase() === normalized);
+
+  if (member) {
+    return { userId: member.userId, userName: member.userName, area: member.area, color: member.color };
+  }
+
+  // Try matching by name
+  const nameNorm = normalizeText(userName);
+  const byName = members.find((m) => normalizeText(m.userName) === nameNorm || nameNorm.includes(normalizeText(m.userName)));
+
+  if (byName) {
+    return { userId: byName.userId, userName: byName.userName, area: byName.area, color: byName.color };
+  }
+
+  return { userId: normalized || "desconhecido", userName: userName || "Desconhecido", area: "Sem area", color: "#94a3b8" };
+}
+
+// ---------------------------------------------------------------------------
+// Main Handler
+// ---------------------------------------------------------------------------
+
+const PERIODS: PeriodType[] = ["mes", "bimestre", "trimestre"];
+const AREAS: AreaFilter[] = ["Todas", "Design", "Libras", "Audiovisual", "Gestao"];
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
@@ -199,10 +150,18 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: "Arquivo deve ser .csv" }, { status: 400 });
     }
 
-    const maxSize = 10 * 1024 * 1024; // 10 MB
-    if (file.size > maxSize) {
+    if (file.size > 10 * 1024 * 1024) {
       return NextResponse.json({ error: "Arquivo muito grande (máximo 10 MB)" }, { status: 400 });
     }
+
+    // Read query params for period/area
+    const url = new URL(request.url);
+    const period: PeriodType = PERIODS.includes(url.searchParams.get("period") as PeriodType)
+      ? (url.searchParams.get("period") as PeriodType)
+      : "trimestre";
+    const area: AreaFilter = AREAS.includes(url.searchParams.get("area") as AreaFilter)
+      ? (url.searchParams.get("area") as AreaFilter)
+      : "Todas";
 
     const text = await file.text();
 
@@ -222,60 +181,88 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: "Nenhuma tarefa encontrada no CSV" }, { status: 400 });
     }
 
-    const validationErrors: string[] = [];
-    const tasks: Task[] = [];
+    // Load taxonomy
+    const taxonomy = await getTaxonomy();
+    const members = teamMembers as TeamMember[];
+    const taxonomyById = new Map(taxonomy.categorias.map((c) => [c.categoryId, c]));
 
-    records.forEach((row: CsvRow, index: number) => {
-      const normalized = mapKanboardColumns(row);
+    // Convert CSV rows → DashboardTaskItem[]
+    const warnings: string[] = [];
+    const allItems: DashboardTaskItem[] = [];
 
-      if (!normalized) {
-        validationErrors.push(
-          `Linha ${index + 2}: Campos obrigatórios ausentes (ID da Tarefa, Nome do designado, Status, Título)`
-        );
+    records.forEach((row, index) => {
+      const taskId = getField(row, "ID da Tarefa", "id da tarefa", "task_id", "Task ID", "ID");
+      const category = getField(row, "Categoria", "categoria", "category", "Category");
+      const userId = getField(row, "Usuário designado", "usuario designado", "person_assigned", "Assigned To");
+      const userName = getField(row, "Nome do designado", "nome do designado", "Assigned Name");
+      const status = getField(row, "Status", "status");
+      const column = getField(row, "Coluna", "coluna", "Column");
+      const dateCompleted = getField(row, "Data da finalização", "data da finalização", "Date Completed", "date_completed");
+      const title = getField(row, "Título", "titulo", "description", "Description", "Task Title");
+
+      if (!taskId || !title || !status) {
+        warnings.push(`Linha ${index + 2}: campos obrigatórios ausentes (ID, Título, Status)`);
         return;
       }
 
-      const validation = validateRow(normalized, index + 2);
+      const categoryId = resolveCategoryId(category, taxonomy);
+      const taxCat = taxonomyById.get(categoryId);
+      const member = resolveTeamMember(userId, userName, members);
+      const resolvedStatus = resolveStatus(status, column);
+      const completedAt = resolvedStatus === "finalizada" ? parseDate(dateCompleted) : null;
 
-      if (!validation.valid) {
-        validationErrors.push(validation.error || "Erro desconhecido");
-      } else {
-        tasks.push({
-          id: parseInt(normalized.taskId, 10),
-          title: normalized.description,
-          category: normalized.category,
-          assignee: normalized.personAssigned,
-          status: normalizeStatus(normalized.status, normalized.column),
-          dateCompleted: parseKanboardDate(normalized.dateCompleted),
-          effortHours: 0,
-        });
-      }
+      allItems.push({
+        id: parseInt(taskId, 10),
+        title,
+        categoryId,
+        categoryName: taxCat?.categoryName ?? (category || "Sem categoria"),
+        userId: member.userId,
+        userName: member.userName,
+        area: (taxCat?.area ?? member.area ?? "Sem area") as DashboardTaskItem["area"],
+        status: resolvedStatus,
+        completedAt,
+      });
     });
 
-    // Permitir importação parcial: se há tarefas válidas, importar mesmo com erros
-    if (tasks.length === 0) {
+    if (allItems.length === 0) {
       return NextResponse.json(
-        {
-          error: "Nenhuma tarefa válida encontrada",
-          errors: validationErrors.slice(0, 10),
-          totalErrors: validationErrors.length,
-        },
+        { error: "Nenhuma tarefa válida encontrada", warnings },
         { status: 400 }
       );
     }
 
-    return NextResponse.json(
-      {
-        success: true,
-        message: `${tasks.length} tarefa(s) importada(s) com sucesso`,
-        tasksCount: tasks.length,
-        tasks,
-        warnings: validationErrors.length > 0 ? validationErrors : undefined,
-        warningCount: validationErrors.length > 0 ? validationErrors.length : undefined,
-        importedAt: new Date().toISOString(),
+    // Build MetricsResponse using existing aggregation functions
+    const now = new Date();
+    const currentRange = getPeriodRange(period, now);
+    const previousRange = getPreviousPeriodRange(period, now);
+
+    const currentTasks = filterByArea(filterByPeriod(allItems, currentRange), taxonomy, area);
+    const previousTasks = filterByArea(filterByPeriod(allItems, previousRange), taxonomy, area);
+
+    const { categories: categoryMetrics, tasksByCategory } = aggregateByCategory(currentTasks, taxonomy, area);
+    const { persons, tasksByPerson } = aggregateByPerson(currentTasks, members, area);
+    const months = aggregateByMonth(currentTasks, getLastNMonths(6, now), taxonomy, members);
+    const kpis = calculateKpis(currentTasks, previousTasks, categoryMetrics, taxonomy, area);
+
+    return NextResponse.json({
+      period,
+      area,
+      range: currentRange,
+      categories: categoryMetrics,
+      persons,
+      months,
+      kpis,
+      tasksByCategory,
+      tasksByPerson,
+      totalTasks: currentTasks.length,
+      _csv: {
+        totalParsed: records.length,
+        totalValid: allItems.length,
+        totalInPeriod: currentTasks.length,
+        warnings: warnings.length > 0 ? warnings : undefined,
+        importedAt: now.toISOString(),
       },
-      { status: 200 }
-    );
+    });
   } catch (error) {
     console.error("CSV import error:", error);
     return NextResponse.json(

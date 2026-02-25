@@ -1,6 +1,6 @@
-﻿"use client";
+"use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AreaFilter } from "@/components/dashboard/area-filter";
 import { CategoryChart } from "@/components/dashboard/category-chart";
 import { CategoryTable } from "@/components/dashboard/category-table";
@@ -20,8 +20,18 @@ export default function DashboardPage() {
   const [data, setData] = useState<MetricsResponse | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [source, setSource] = useState<"api" | "csv">("api");
 
   useEffect(() => {
+    // If data came from CSV, re-import is needed when filters change.
+    // For API mode, fetch normally.
+    if (source === "csv") {
+      // Keep existing CSV data — user needs to re-upload if they change filters.
+      // But we can still try the API in case it became available.
+      setLoading(false);
+      return;
+    }
+
     let mounted = true;
 
     async function loadMetrics() {
@@ -36,6 +46,7 @@ export default function DashboardPage() {
         const payload = (await response.json()) as MetricsResponse;
         if (mounted) {
           setData(payload);
+          setSource("api");
         }
       } catch {
         if (mounted) {
@@ -52,7 +63,14 @@ export default function DashboardPage() {
     return () => {
       mounted = false;
     };
-  }, [period, area]);
+  }, [period, area, source]);
+
+  const handleCsvImport = useCallback((metricsData: MetricsResponse) => {
+    setData(metricsData);
+    setError(null);
+    setSource("csv");
+    setLoading(false);
+  }, []);
 
   const categoryLabels = useMemo(
     () =>
@@ -73,7 +91,7 @@ export default function DashboardPage() {
           <p className="font-semibold">Erro ao carregar dados</p>
           <p className="text-sm mt-1">{error ?? "Erro inesperado."}</p>
         </div>
-        <CsvImportCard />
+        <CsvImportCard period={period} area={area} onImportSuccess={handleCsvImport} />
       </section>
     );
   }
@@ -88,6 +106,9 @@ export default function DashboardPage() {
         <p className="rounded-lg border border-slate-200 bg-white p-6 text-slate-700">
           Nenhuma tarefa encontrada para os filtros selecionados.
         </p>
+        {source === "csv" && (
+          <CsvImportCard period={period} area={area} onImportSuccess={handleCsvImport} />
+        )}
       </section>
     );
   }
@@ -98,6 +119,13 @@ export default function DashboardPage() {
         <PeriodSelector />
         <AreaFilter />
       </div>
+
+      {source === "csv" && (
+        <div className="flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700">
+          <span>Dados importados via CSV.</span>
+          <CsvImportCard period={period} area={area} onImportSuccess={handleCsvImport} />
+        </div>
+      )}
 
       <KpiGrid kpis={data.kpis} />
 
