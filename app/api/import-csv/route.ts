@@ -10,6 +10,7 @@ interface NormalizedTask {
   category: string;
   personAssigned: string;
   status: string;
+  column: string;
   dateCompleted?: string;
   description: string;
 }
@@ -24,12 +25,12 @@ interface Task {
   effortHours: number;
 }
 
-const VALID_CATEGORIES = ["Design", "Audiovisual", "Libras", "Gestao"];
-const VALID_STATUSES = ["finalizada", "emAndamento", "backlog"];
-
-// Mapeamento de colunas Kanboard → campos esperados
+/**
+ * Mapeia colunas do CSV exportado pelo Kanboard para campos internos.
+ * Campos obrigatórios: ID da Tarefa, Nome do designado, Status, Título.
+ * Categoria é opcional (usa "Sem categoria" como fallback).
+ */
 function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
-  // Encontrar valores com flexibilidade de nomes
   const taskId =
     row["ID da Tarefa"] ||
     row["id da tarefa"] ||
@@ -41,7 +42,8 @@ function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
     row["Categoria"] ||
     row["categoria"] ||
     row["category"] ||
-    row["Category"];
+    row["Category"] ||
+    "";
 
   const personAssigned =
     row["Nome do designado"] ||
@@ -56,6 +58,12 @@ function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
     row["status"] ||
     row["Status da Tarefa"];
 
+  const column =
+    row["Coluna"] ||
+    row["coluna"] ||
+    row["Column"] ||
+    "";
+
   const dateCompleted =
     row["Data da finalização"] ||
     row["data da finalização"] ||
@@ -69,27 +77,61 @@ function mapKanboardColumns(row: CsvRow): NormalizedTask | null {
     row["Description"] ||
     row["Task Title"];
 
-  if (!taskId || !category || !personAssigned || !status || !description) {
+  // Apenas taskId, personAssigned, status e description são obrigatórios
+  if (!taskId || !personAssigned || !status || !description) {
     return null;
   }
 
   return {
     taskId,
-    category,
+    category: category || "Sem categoria",
     personAssigned,
     status,
+    column,
     dateCompleted,
     description,
   };
 }
 
-function normalizeStatus(status: string): "finalizada" | "emAndamento" | "backlog" {
-  const normalized = status.toLowerCase().trim();
+/**
+ * Normaliza o status da tarefa combinando a coluna "Status" e "Coluna" do Kanboard.
+ *
+ * Kanboard usa dois campos:
+ * - "Status": Finalizado | Abrir
+ * - "Coluna": Finalizado | Em andamento | Início autorizado | Em aprovação | Backlog
+ *
+ * Mapeamento:
+ *   Status="Finalizado" → finalizada
+ *   Coluna="Finalizado" → finalizada
+ *   Coluna="Em andamento" ou "Em aprovação" ou "Início autorizado" → emAndamento
+ *   Tudo mais → backlog
+ */
+function normalizeStatus(status: string, column: string): "finalizada" | "emAndamento" | "backlog" {
+  const s = status.toLowerCase().trim();
+  const c = column.toLowerCase().trim();
 
-  if (normalized.includes("finalizada") || normalized.includes("done") || normalized.includes("concluída")) {
+  // Status "Finalizado" é definitivo
+  if (s === "finalizado" || s.includes("finalizado") || s.includes("done")) {
     return "finalizada";
   }
-  if (normalized.includes("andamento") || normalized.includes("progress") || normalized.includes("em andamento")) {
+
+  // Coluna "Finalizado" também indica tarefa concluída
+  if (c === "finalizado" || c.includes("finalizado")) {
+    return "finalizada";
+  }
+
+  // Colunas que indicam trabalho em progresso
+  if (
+    c.includes("andamento") ||
+    c.includes("aprovação") ||
+    c.includes("autorizado") ||
+    c.includes("progress")
+  ) {
+    return "emAndamento";
+  }
+
+  // Status "Abrir" com coluna de trabalho ativo
+  if (s === "abrir" || s === "open") {
     return "emAndamento";
   }
 
@@ -98,34 +140,50 @@ function normalizeStatus(status: string): "finalizada" | "emAndamento" | "backlo
 
 function validateRow(row: NormalizedTask, rowNumber: number): { valid: boolean; error?: string } {
   if (!row.taskId) {
-    return { valid: false, error: `Linha ${rowNumber}: task_id é obrigatório` };
+    return { valid: false, error: `Linha ${rowNumber}: ID da Tarefa é obrigatório` };
   }
 
   if (isNaN(parseInt(row.taskId, 10))) {
-    return { valid: false, error: `Linha ${rowNumber}: task_id deve ser um número` };
+    return { valid: false, error: `Linha ${rowNumber}: ID da Tarefa deve ser um número` };
   }
-
-  if (!row.category) {
-    return { valid: false, error: `Linha ${rowNumber}: category é obrigatória` };
-  }
-
-  // Aceitar qualquer categoria (será usada como está)
-  // if (!VALID_CATEGORIES.includes(row.category)) {
-  //   return {
-  //     valid: false,
-  //     error: `Linha ${rowNumber}: category inválida. Válidas: ${VALID_CATEGORIES.join(", ")}`,
-  //   };
-  // }
 
   if (!row.personAssigned) {
-    return { valid: false, error: `Linha ${rowNumber}: person_assigned é obrigatório` };
+    return { valid: false, error: `Linha ${rowNumber}: Nome do designado é obrigatório` };
   }
 
   if (!row.status) {
-    return { valid: false, error: `Linha ${rowNumber}: status é obrigatório` };
+    return { valid: false, error: `Linha ${rowNumber}: Status é obrigatório` };
+  }
+
+  if (!row.description) {
+    return { valid: false, error: `Linha ${rowNumber}: Título é obrigatório` };
   }
 
   return { valid: true };
+}
+
+/**
+ * Converte data no formato Kanboard "DD/MM/YYYY HH:MM" para Date.
+ */
+function parseKanboardDate(dateStr: string | undefined): Date | null {
+  if (!dateStr || dateStr.trim() === "") return null;
+
+  // Formato: "24/02/2026 10:57"
+  const match = dateStr.match(/^(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2})$/);
+  if (match) {
+    const [, day, month, year, hours, minutes] = match;
+    return new Date(
+      parseInt(year, 10),
+      parseInt(month, 10) - 1,
+      parseInt(day, 10),
+      parseInt(hours, 10),
+      parseInt(minutes, 10)
+    );
+  }
+
+  // Fallback: tentar parse nativo
+  const parsed = new Date(dateStr);
+  return isNaN(parsed.getTime()) ? null : parsed;
 }
 
 export async function POST(request: NextRequest): Promise<Response> {
@@ -146,10 +204,8 @@ export async function POST(request: NextRequest): Promise<Response> {
       return NextResponse.json({ error: "Arquivo muito grande (máximo 10 MB)" }, { status: 400 });
     }
 
-    // Ler arquivo
     const text = await file.text();
 
-    // Parser CSV
     let records: CsvRow[];
     try {
       records = parse(text, {
@@ -159,14 +215,13 @@ export async function POST(request: NextRequest): Promise<Response> {
         delimiter: ",",
       });
     } catch {
-      return NextResponse.json({ error: "Erro ao fazer parse do CSV" }, { status: 400 });
+      return NextResponse.json({ error: "Erro ao fazer parse do CSV. Verifique o formato do arquivo." }, { status: 400 });
     }
 
     if (records.length === 0) {
       return NextResponse.json({ error: "Nenhuma tarefa encontrada no CSV" }, { status: 400 });
     }
 
-    // Validar registros
     const validationErrors: string[] = [];
     const tasks: Task[] = [];
 
@@ -175,12 +230,12 @@ export async function POST(request: NextRequest): Promise<Response> {
 
       if (!normalized) {
         validationErrors.push(
-          `Linha ${index + 2}: Colunas obrigatórias não encontradas (ID da Tarefa, Categoria, Nome do designado, Status, Título)`
+          `Linha ${index + 2}: Campos obrigatórios ausentes (ID da Tarefa, Nome do designado, Status, Título)`
         );
         return;
       }
 
-      const validation = validateRow(normalized, index + 2); // +2 porque começa na linha 2 (depois do header)
+      const validation = validateRow(normalized, index + 2);
 
       if (!validation.valid) {
         validationErrors.push(validation.error || "Erro desconhecido");
@@ -190,38 +245,33 @@ export async function POST(request: NextRequest): Promise<Response> {
           title: normalized.description,
           category: normalized.category,
           assignee: normalized.personAssigned,
-          status: normalizeStatus(normalized.status),
-          dateCompleted: normalized.dateCompleted ? new Date(normalized.dateCompleted) : null,
+          status: normalizeStatus(normalized.status, normalized.column),
+          dateCompleted: parseKanboardDate(normalized.dateCompleted),
           effortHours: 0,
         });
       }
     });
 
-    if (validationErrors.length > 0) {
+    // Permitir importação parcial: se há tarefas válidas, importar mesmo com erros
+    if (tasks.length === 0) {
       return NextResponse.json(
         {
-          error: "Erros de validação encontrados",
-          errors: validationErrors.slice(0, 10), // Primeiros 10 erros
+          error: "Nenhuma tarefa válida encontrada",
+          errors: validationErrors.slice(0, 10),
           totalErrors: validationErrors.length,
         },
         { status: 400 }
       );
     }
 
-    if (tasks.length === 0) {
-      return NextResponse.json({ error: "Nenhuma tarefa válida encontrada" }, { status: 400 });
-    }
-
-    // Aqui você pode salvar as tasks em um banco de dados
-    // Por enquanto, apenas retornamos os dados processados
-    // TODO: Implementar persistência em banco de dados
-
     return NextResponse.json(
       {
         success: true,
         message: `${tasks.length} tarefa(s) importada(s) com sucesso`,
         tasksCount: tasks.length,
-        tasks: tasks,
+        tasks,
+        warnings: validationErrors.length > 0 ? validationErrors : undefined,
+        warningCount: validationErrors.length > 0 ? validationErrors.length : undefined,
         importedAt: new Date().toISOString(),
       },
       { status: 200 }
