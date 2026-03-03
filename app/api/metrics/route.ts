@@ -42,11 +42,13 @@ export async function GET(request: Request): Promise<Response> {
     });
 
     return NextResponse.json(payload);
-  } catch {
+  } catch (error) {
+    console.error("[api/metrics] error:", error);
     return NextResponse.json(
       {
         message:
-          "Nao foi possivel carregar as metricas do dashboard no momento. Verifique a integracao com o Kanboard."
+          "Nao foi possivel carregar as metricas do dashboard no momento. Verifique a integracao com o Kanboard.",
+        debug: String(error)
       },
       { status: 503 }
     );
