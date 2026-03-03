@@ -146,8 +146,14 @@ class KanboardClient {
     }
   }
 
+  private get projectId(): number {
+    const id = process.env.KANBOARD_PROJECT_ID;
+    if (!id) throw new KanboardClientError("KANBOARD_PROJECT_ID nao configurado no ambiente", "auth");
+    return parseInt(id, 10);
+  }
+
   async getAllTasks(): Promise<KanboardTask[]> {
-    const result = await this.call<KanboardTask[]>("getAllTasks");
+    const result = await this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 1 });
     return result.map((task) => ({ ...task, id: parseNumber(task.id) }));
   }
 
@@ -157,7 +163,7 @@ class KanboardClient {
   }
 
   async getAllCategories(): Promise<KanboardCategory[]> {
-    const result = await this.call<KanboardCategory[]>("getAllCategories");
+    const result = await this.call<KanboardCategory[]>("getAllCategories", { project_id: this.projectId });
     return result.map((category) => ({ ...category, id: parseNumber(category.id) }));
   }
 
