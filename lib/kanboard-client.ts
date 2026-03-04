@@ -153,8 +153,11 @@ class KanboardClient {
   }
 
   async getAllTasks(): Promise<KanboardTask[]> {
-    const result = await this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 1 });
-    return result.map((task) => ({ ...task, id: parseNumber(task.id) }));
+    const [open, closed] = await Promise.all([
+      this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 1 }),
+      this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 0 }),
+    ]);
+    return [...open, ...closed].map((task) => ({ ...task, id: parseNumber(task.id) }));
   }
 
   async getTasksByProject(projectId: number): Promise<KanboardTask[]> {
