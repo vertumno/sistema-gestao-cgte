@@ -241,7 +241,7 @@ export function buildTaskItems(
     return {
       id: parseNumeric(task.id),
       title: task.title,
-      categoryId,
+      categoryId: taxonomyCategory?.categoryId ?? categoryId,
       categoryName,
       userId: member?.userId ?? "sem-responsavel",
       userName: member?.userName ?? "Sem responsavel",
