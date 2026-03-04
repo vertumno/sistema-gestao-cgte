@@ -47,8 +47,7 @@ export async function GET(request: Request): Promise<Response> {
     return NextResponse.json(
       {
         message:
-          "Nao foi possivel carregar as metricas do dashboard no momento. Verifique a integracao com o Kanboard.",
-        debug: String(error)
+          "Nao foi possivel carregar as metricas do dashboard no momento. Verifique a integracao com o Kanboard."
       },
       { status: 503 }
     );
