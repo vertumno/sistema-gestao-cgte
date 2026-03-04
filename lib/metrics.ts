@@ -221,14 +221,18 @@ export function buildTaskItems(
   teamMembers: TeamMember[]
 ): DashboardTaskItem[] {
   const taxonomyById = new Map(taxonomy.categorias.map((category) => [category.categoryId, category]));
+  const taxonomyByName = new Map(taxonomy.categorias.map((category) => [normalizeText(category.categoryName), category]));
   const categoryNameById = new Map(categories.map((category) => [parseNumeric(category.id), category.name]));
   const membersById = new Map(teamMembers.map((member) => [member.userId.toLowerCase(), member]));
 
   return tasks.map((task) => {
     const categoryId = parseNumeric(task.category_id);
-    const taxonomyCategory = taxonomyById.get(categoryId);
+    const kanboardCategoryName = categoryNameById.get(categoryId);
+    const taxonomyCategory =
+      taxonomyById.get(categoryId) ??
+      taxonomyByName.get(normalizeText(kanboardCategoryName ?? ""));
     const categoryName =
-      taxonomyCategory?.categoryName ?? categoryNameById.get(categoryId) ?? `Categoria ${categoryId || "N/A"}`;
+      taxonomyCategory?.categoryName ?? kanboardCategoryName ?? `Categoria ${categoryId || "N/A"}`;
 
     const member = resolveMember(task.owner_id ?? task.assignee_id, membersById);
     const status = resolveStatus(task);
