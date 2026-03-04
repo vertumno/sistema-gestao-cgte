@@ -252,9 +252,16 @@ export function buildTaskItems(
   });
 }
 
+// Tarefas históricas anteriores a esta data são ignoradas (decisão: começamos limpo em 2026)
+const OPEN_TASKS_CUTOFF = new Date(2026, 0, 1); // 01/01/2026
+
 export function filterByPeriod(tasks: DashboardTaskItem[], range: DateRange): DashboardTaskItem[] {
   return tasks.filter((task) => {
-    if (task.status !== "finalizada") return true; // tarefas abertas sempre aparecem
+    if (task.status !== "finalizada") {
+      // Tarefas abertas: sempre aparecem, mas apenas as criadas/modificadas a partir de 2026
+      const date = task.completedAt ? new Date(task.completedAt) : null;
+      return date !== null && date >= OPEN_TASKS_CUTOFF;
+    }
     const date = task.completedAt ? new Date(task.completedAt) : null;
     return isWithinRange(date, range);
   });
