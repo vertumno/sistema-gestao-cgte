@@ -104,6 +104,7 @@ describe("metrics", () => {
         userName: "u",
         area: item.area,
         status: "backlog" as const,
+        columnName: "Backlog",
         completedAt: new Date().toISOString()
       })),
       taxonomy as TaxonomyConfig,

@@ -253,6 +253,7 @@ export function buildTaskItems(
       userName: member?.userName ?? "Sem responsavel",
       area: (taxonomyCategory?.area ?? "Sem area") as DashboardTaskItem["area"],
       status,
+      columnName: task.column_name ?? "",
       completedAt: date ? date.toISOString() : null
     }];
   });

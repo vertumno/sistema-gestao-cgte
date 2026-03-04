@@ -15,6 +15,7 @@ export type DashboardTaskItem = {
   userName: string;
   area: AreaFilter | "Transversal" | "Uso controlado" | "Sem area";
   status: "finalizada" | "emAndamento" | "backlog";
+  columnName: string;
   completedAt: string | null;
 };
 

@@ -31,6 +31,7 @@ describe("PersonTable", () => {
               userName: "Juliana",
               area: "Design",
               status: "finalizada",
+              columnName: "Finalizado",
               completedAt: new Date().toISOString()
             }
           ]

@@ -220,6 +220,7 @@ export async function POST(request: NextRequest): Promise<Response> {
         userName: member.userName,
         area: (taxCat?.area ?? member.area ?? "Sem area") as DashboardTaskItem["area"],
         status: resolvedStatus,
+        columnName: column || "",
         completedAt,
       });
     });
