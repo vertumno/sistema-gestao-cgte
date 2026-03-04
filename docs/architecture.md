@@ -21,6 +21,7 @@ N/A - Greenfield project.
 |------|---------|-------------|--------|
 | 24/02/2026 | 0.1 | Primeira versao da arquitetura com base no PRD v0.3 | @architect |
 | 24/02/2026 | 0.2 | Execucao do architect-checklist e registro de riscos/acoes obrigatorias | @architect |
+| 04/03/2026 | 0.3 | Fixes de producao: mapeamento categoryId, _is_active tag, columnName, regras de filtro de tarefas abertas/congeladas | @dev |
 
 ---
 
