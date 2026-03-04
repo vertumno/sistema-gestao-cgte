@@ -14,7 +14,7 @@ export function DashboardShell({ children }: DashboardShellProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-bg">
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
       <div className="flex min-h-screen">
         <aside className="hidden md:block">

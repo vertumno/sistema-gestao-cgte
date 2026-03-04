@@ -1,16 +1,16 @@
-﻿export function Footer() {
+export function Footer() {
   const version = process.env.NEXT_PUBLIC_APP_VERSION ?? "0.1.0";
 
   return (
-    <footer className="border-t border-slate-200 bg-white px-4 py-3 text-xs text-slate-600 md:px-6">
+    <footer className="border-t border-border px-4 py-3 text-xs text-text-subtle md:px-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
-        <span aria-label={`Versao ${version}`}>Versao {version}</span>
+        <span aria-label={`Versão ${version}`}>v{version}</span>
         <a
           href="/docs/prd.md"
-          aria-label="Abrir documentacao do sistema"
-          className="font-medium text-emerald-700 underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600"
+          aria-label="Abrir documentação do sistema"
+          className="font-medium text-text-muted transition hover:text-primary focus-glow"
         >
-          Documentacao
+          Documentação
         </a>
       </div>
     </footer>

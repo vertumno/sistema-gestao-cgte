@@ -46,10 +46,10 @@ export function MobileNav({ open, onClose }: MobileNavProps) {
       <button
         type="button"
         aria-label="Fechar menu"
-        className="absolute inset-0 bg-slate-900/40"
+        className="absolute inset-0 bg-black/60"
         onClick={onClose}
       />
-      <div ref={panelRef} className="relative h-full w-72 bg-white shadow-xl">
+      <div ref={panelRef} className="relative h-full w-72 bg-surface shadow-2xl border-r border-border">
         <Sidebar onNavigate={onClose} className="w-full border-r-0" />
       </div>
     </div>

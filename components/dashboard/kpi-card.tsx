@@ -8,24 +8,28 @@ type KpiCardProps = KpiData & {
 };
 
 export function KpiCard({ label, value, trend, trendDirection, className }: KpiCardProps) {
-  const trendIcon = trendDirection === "up" ? "\u2191" : trendDirection === "down" ? "\u2193" : "\u2192";
+  const trendIcon = trendDirection === "up" ? "↑" : trendDirection === "down" ? "↓" : "→";
 
   return (
     <section
-      className={cn("rounded-lg border border-slate-200 bg-white p-4", className)}
-      aria-label={`${label}: ${value}. Variacao ${trend}.`}
+      className={cn(
+        "reveal rounded-lg p-4 glass transition-shadow hover:glow",
+        className
+      )}
+      aria-label={`${label}: ${value}. Variação ${trend}.`}
     >
-      <p className="text-sm text-slate-600">{label}</p>
-      <p className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">{value}</p>
+      <p className="text-xs font-medium uppercase tracking-wide text-text-muted">{label}</p>
+      <p className="mt-2 font-display text-3xl font-bold tracking-tight text-text">{value}</p>
       <p
         className={cn(
-          "mt-2 text-xs font-medium",
-          trendDirection === "up" && "text-emerald-700",
-          trendDirection === "down" && "text-red-700",
-          trendDirection === "neutral" && "text-slate-500"
+          "mt-2 flex items-center gap-1 text-xs font-semibold",
+          trendDirection === "up" && "text-success",
+          trendDirection === "down" && "text-danger",
+          trendDirection === "neutral" && "text-text-muted"
         )}
       >
-        {trendIcon} {trend}
+        <span aria-hidden="true">{trendIcon}</span>
+        <span>{trend}</span>
       </p>
     </section>
   );

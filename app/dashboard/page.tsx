@@ -1,109 +1,68 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo } from "react";
 import { AreaFilter } from "@/components/dashboard/area-filter";
 import { CategoryChart } from "@/components/dashboard/category-chart";
 import { CategoryTable } from "@/components/dashboard/category-table";
 import { CsvImportCard } from "@/components/dashboard/csv-import-card";
 import { KpiGrid } from "@/components/dashboard/kpi-grid";
-import { PeriodSelector } from "@/components/dashboard/period-selector";
-import { PersonChart } from "@/components/dashboard/person-chart";
-import { PersonTable } from "@/components/dashboard/person-table";
+import { NaturalLanguageSummary } from "@/components/dashboard/natural-language-summary";
+import { PersonCardGrid } from "@/components/dashboard/person-card-grid";
+import { TemporalContextHeader } from "@/components/dashboard/temporal-context-header";
 import { TemporalChart } from "@/components/dashboard/temporal-chart";
-import { useDashboardStore } from "@/stores/dashboard-store";
-import type { MetricsResponse } from "@/types/dashboard";
+import { useDashboardData } from "@/hooks/use-dashboard-data";
 
 export default function DashboardPage() {
-  const period = useDashboardStore((state) => state.period);
-  const area = useDashboardStore((state) => state.area);
-
-  const [data, setData] = useState<MetricsResponse | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [source, setSource] = useState<"api" | "csv">("api");
-
-  useEffect(() => {
-    // If data came from CSV, re-import is needed when filters change.
-    // For API mode, fetch normally.
-    if (source === "csv") {
-      // Keep existing CSV data — user needs to re-upload if they change filters.
-      // But we can still try the API in case it became available.
-      setLoading(false);
-      return;
-    }
-
-    let mounted = true;
-
-    async function loadMetrics() {
-      setLoading(true);
-      setError(null);
-
-      try {
-        const response = await fetch(`/api/metrics?period=${period}&area=${encodeURIComponent(area)}`);
-        if (!response.ok) {
-          throw new Error("Falha ao carregar metricas.");
-        }
-        const payload = (await response.json()) as MetricsResponse;
-        if (mounted) {
-          setData(payload);
-          setSource("api");
-        }
-      } catch {
-        if (mounted) {
-          setError("Nao foi possivel carregar os dados do dashboard.");
-        }
-      } finally {
-        if (mounted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    loadMetrics();
-    return () => {
-      mounted = false;
-    };
-  }, [period, area, source]);
-
-  const handleCsvImport = useCallback((metricsData: MetricsResponse) => {
-    setData(metricsData);
-    setError(null);
-    setSource("csv");
-    setLoading(false);
-  }, []);
+  const { data, loading, error, source, period, area, handleCsvImport } = useDashboardData();
 
   const categoryLabels = useMemo(
     () =>
       Object.fromEntries(
-        (data?.categories ?? []).map((category) => [String(category.categoryId), category.categoryName])
+        (data?.categories ?? []).map((c) => [String(c.categoryId), c.categoryName])
       ),
     [data?.categories]
   );
 
+  // --- Loading ---
   if (loading) {
-    return <p className="rounded-lg border border-slate-200 bg-white p-6 text-slate-700">Carregando dashboard...</p>;
+    return (
+      <div className="flex items-center justify-center rounded-lg border border-border bg-surface p-10">
+        <div className="text-center">
+          <div
+            className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-4 border-border border-t-primary"
+            aria-hidden="true"
+          />
+          <p className="text-sm text-text-muted">Carregando dashboard…</p>
+        </div>
+      </div>
+    );
   }
 
+  // --- Error total (API indisponível) ---
   if (error || !data) {
     return (
       <section className="space-y-4">
-        <div className="rounded-lg border border-red-200 bg-red-50 p-6 text-red-700" role="alert">
+        <div
+          className="rounded-lg border border-danger bg-danger-light p-6 text-danger"
+          role="alert"
+        >
           <p className="font-semibold">Erro ao carregar dados</p>
-          <p className="text-sm mt-1">{error ?? "Erro inesperado."}</p>
+          <p className="mt-1 text-sm">{error ?? "Erro inesperado."}</p>
         </div>
         <CsvImportCard period={period} area={area} onImportSuccess={handleCsvImport} />
       </section>
     );
   }
 
+  // --- Empty (nenhuma tarefa no período) ---
   if (data.totalTasks === 0) {
     return (
       <section className="space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <PeriodSelector />
+          <TemporalContextHeader range={data.range} />
           <AreaFilter />
         </div>
-        <p className="rounded-lg border border-slate-200 bg-white p-6 text-slate-700">
+        <p className="rounded-lg border border-border bg-surface p-6 text-text-muted">
           Nenhuma tarefa encontrada para os filtros selecionados.
         </p>
         {source === "csv" && (
@@ -113,29 +72,62 @@ export default function DashboardPage() {
     );
   }
 
+  // --- Dashboard principal ---
   return (
     <section className="space-y-6">
-      <div className="flex flex-wrap items-center justify-between gap-3">
-        <PeriodSelector />
-        <AreaFilter />
+
+      {/* Cabeçalho temporal + filtro de área */}
+      <div className="flex flex-wrap items-start gap-3">
+        <div className="flex-1 min-w-0">
+          <TemporalContextHeader range={data.range} />
+        </div>
+        <div className="shrink-0">
+          <AreaFilter />
+        </div>
       </div>
 
+      {/* Aviso de dados via CSV */}
       {source === "csv" && (
-        <div className="flex items-center gap-2 rounded-lg border border-blue-200 bg-blue-50 px-4 py-2 text-sm text-blue-700">
+        <div className="flex items-center gap-3 rounded-lg border border-info bg-info-light px-4 py-3 text-sm text-info">
           <span>Dados importados via CSV.</span>
           <CsvImportCard period={period} area={area} onImportSuccess={handleCsvImport} />
         </div>
       )}
 
-      <KpiGrid kpis={data.kpis} />
+      {/* Resumo interpretativo */}
+      <NaturalLanguageSummary data={data} />
 
-      <CategoryChart categories={data.categories} />
-      <CategoryTable categories={data.categories} tasksByCategory={data.tasksByCategory} />
+      {/* KPIs — só renderiza se houver dados */}
+      {data.kpis.length > 0 && <KpiGrid kpis={data.kpis} />}
 
-      <PersonChart persons={data.persons} />
-      <PersonTable persons={data.persons} tasksByPerson={data.tasksByPerson} />
+      {/* Categorias — só renderiza se houver categorias com tarefas */}
+      {data.categories.length > 0 && (
+        <>
+          <CategoryChart categories={data.categories} />
+          <CategoryTable
+            categories={data.categories}
+            tasksByCategory={data.tasksByCategory}
+          />
+        </>
+      )}
 
-      <TemporalChart months={data.months} categoryLabels={categoryLabels} persons={data.persons} />
+      {/* Equipe — só renderiza se houver pessoas com tarefas */}
+      {data.persons.length > 0 && (
+        <PersonCardGrid
+          persons={data.persons}
+          tasksByPerson={data.tasksByPerson}
+        />
+      )}
+
+      {/* Evolução temporal — só renderiza se houver histórico */}
+      {data.months.length > 0 && (
+        <TemporalChart
+          months={data.months}
+          categoryLabels={categoryLabels}
+          persons={data.persons}
+        />
+      )}
+
     </section>
   );
 }

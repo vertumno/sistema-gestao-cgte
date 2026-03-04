@@ -196,15 +196,48 @@ Cada membro tem um card com:
 
 ---
 
+## Entregues no v2 (2026-03-04)
+
+### Design — @ux-design-expert (Uma)
+| Entrega | Status |
+|---------|--------|
+| Tema Emerald Light (light mode IFES) | ✅ Implementado |
+| TemporalContextHeader — clareza temporal | ✅ Implementado |
+| NaturalLanguageSummary — interpretação automática | ✅ Implementado |
+| PersonCard + PersonCardGrid — visão ética individual | ✅ Implementado |
+| KpiCard atualizado — glass light mode | ✅ Implementado |
+| Página Kanboard Helper com Gemini Gem | ✅ Implementado |
+| Home redesenhada — mesh gradient + heading grande | ✅ Implementado |
+| Design system documentado | ✅ `docs/design-system.md` |
+
+### Arquitetura — @architect (Aria)
+| Entrega | Status |
+|---------|--------|
+| Cache Kanboard via `unstable_cache` (TTL 5min) | ✅ Implementado |
+| Hook `useDashboardData` — separação de concerns | ✅ Implementado |
+| Section guards — resiliência por seção | ✅ Implementado |
+| LLM para NaturalLanguageSummary | ⏸️ Descartado neste momento |
+
+## Status Atual do Sistema
+
+```
+✅ API Kanboard integrada (project_id=47, open+closed tasks)
+✅ Cache 5min no fetch bruto Kanboard
+✅ Dashboard v2 — todos os componentes novos
+✅ Design Emerald Light — light mode IFES premium
+✅ Página Kanboard Helper com Gemini Gem
+✅ Hook useDashboardData — arquitetura limpa
+✅ Section guards — resiliência granular
+✅ CSV fallback — degradação graciosa
+```
+
 ## Próximos Passos
 
 | Passo | Agente Responsável | Prioridade |
 |-------|-------------------|------------|
-| Design system e wireframes completos | `@ux-design-expert` | 🔴 Alta |
-| Arquitetura da análise em linguagem natural | `@architect` | 🔴 Alta |
 | Definição de épicos e stories do v2 | `@pm` | 🟡 Média |
-| Implementação frontend | `@dev` | 🟡 Média |
 | Política de privacidade de dados da equipe | `@qa` | 🟡 Média |
+| Verificar mapeamento categoryId Kanboard → taxonomy | `@dev` | 🟡 Média |
 
 ---
 
@@ -216,4 +249,6 @@ Cada membro tem um card com:
 
 **Documento gerado por:** @analyst (Atlas)
 **Sessão de elicitação:** 2026-03-03
-**Próxima revisão:** após wireframes do @ux-design-expert
+**Atualizado por:** @ux-design-expert (Uma) — Design v2 — 2026-03-04
+**Atualizado por:** @architect (Aria) — Refatoração arquitetural — 2026-03-04
+**Status:** Design v2 ✅ | Arquitetura ✅ | Sistema estável

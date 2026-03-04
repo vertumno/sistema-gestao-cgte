@@ -1,18 +1,22 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { SquareKanban, BarChart3, FileBarChart, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
+import type { LucideIcon } from "lucide-react";
 
-export type NavItem = {
+type NavItem = {
   href: string;
   label: string;
+  icon: LucideIcon;
+  external?: boolean;
 };
 
-export const NAV_ITEMS: NavItem[] = [
-  { href: "/dashboard", label: "Dashboard" },
-  { href: "/relatorio-pgd", label: "Relatorio PGD" },
-  { href: "/configuracoes", label: "Configuracoes" }
+const NAV_ITEMS: NavItem[] = [
+  { href: "/kanboard-helper", label: "Kanboard Task Helper", icon: SquareKanban },
+  { href: "/dashboard",     label: "Dashboard de Gestão", icon: BarChart3 },
+  { href: "/relatorio-pgd", label: "PGD Helper",          icon: FileBarChart }
 ];
 
 type SidebarProps = {
@@ -25,29 +29,98 @@ export function Sidebar({ className, onNavigate }: SidebarProps) {
 
   return (
     <nav
-      aria-label="Navegacao principal"
-      className={cn("h-full w-60 border-r border-slate-200 bg-white p-4", className)}
+      aria-label="Navegação principal"
+      className={cn(
+        "flex h-full w-60 flex-col border-r border-border bg-surface",
+        className
+      )}
     >
-      <ul className="space-y-2">
+      {/* Back to home */}
+      <div className="border-b border-border px-4 py-4">
+        <Link
+          href="/"
+          onClick={onNavigate}
+          aria-label="Voltar para o início"
+          className="group flex items-center gap-2 text-xs font-medium text-text-subtle transition-colors hover:text-text focus-glow rounded outline-none"
+        >
+          <ArrowLeft
+            size={13}
+            strokeWidth={1.5}
+            className="transition-transform group-hover:-translate-x-0.5"
+            aria-hidden="true"
+          />
+          Início
+        </Link>
+      </div>
+
+      {/* Nav items */}
+      <ul className="flex-1 space-y-0.5 p-3">
         {NAV_ITEMS.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = !item.external && pathname === item.href;
+
+          const linkContent = (
+            <span
+              className={cn(
+                "group flex w-full items-center gap-3 rounded px-3 py-2.5 text-sm outline-none transition-all focus-glow",
+                isActive
+                  ? "bg-primary-light text-primary"
+                  : "text-text-muted hover:bg-primary-light/40 hover:text-text"
+              )}
+            >
+              <item.icon
+                size={15}
+                strokeWidth={1.5}
+                className={cn(
+                  "shrink-0 transition-colors",
+                  isActive ? "text-primary" : "text-text-subtle group-hover:text-text-muted"
+                )}
+                aria-hidden="true"
+              />
+              <span className="leading-snug">{item.label}</span>
+              {isActive && (
+                <span
+                  className="ml-auto h-1.5 w-1.5 shrink-0 rounded-full bg-primary glow"
+                  aria-hidden="true"
+                />
+              )}
+              {item.external && (
+                <span className="ml-auto text-xs text-text-subtle" aria-hidden="true">↗</span>
+              )}
+            </span>
+          );
+
           return (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={onNavigate}
-                aria-label={`Ir para ${item.label}`}
-                className={cn(
-                  "block rounded-lg px-3 py-2 text-sm font-medium outline-none transition focus-visible:ring-2 focus-visible:ring-emerald-600",
-                  isActive ? "bg-emerald-700 text-white" : "text-slate-700 hover:bg-slate-100"
-                )}
-              >
-                {item.label}
-              </Link>
+              {item.external ? (
+                <a
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${item.label} — abre em nova aba`}
+                  className="block rounded outline-none focus-glow"
+                >
+                  {linkContent}
+                </a>
+              ) : (
+                <Link
+                  href={item.href}
+                  onClick={onNavigate}
+                  aria-label={`Ir para ${item.label}`}
+                  aria-current={isActive ? "page" : undefined}
+                  className="block rounded outline-none focus-glow"
+                >
+                  {linkContent}
+                </Link>
+              )}
             </li>
           );
         })}
       </ul>
+
+      {/* Footer */}
+      <div className="border-t border-border px-4 py-3">
+        <p className="font-mono text-xs text-text-subtle">Cefor · IFES</p>
+      </div>
     </nav>
   );
 }
