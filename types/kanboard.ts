@@ -10,6 +10,8 @@ export type KanboardTask = {
   date_creation?: number | string;
   date_modification?: number | string;
   date_completed?: number | string;
+  /** Marcado internamente: 1=aberta, 0=fechada (vem do status_id do fetch) */
+  _is_active?: 0 | 1;
 };
 
 export type KanboardCategory = {

@@ -157,7 +157,10 @@ class KanboardClient {
       this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 1 }),
       this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 0 }),
     ]);
-    return [...open, ...closed].map((task) => ({ ...task, id: parseNumber(task.id) }));
+    return [
+      ...open.map((task) => ({ ...task, id: parseNumber(task.id), _is_active: 1 as const })),
+      ...closed.map((task) => ({ ...task, id: parseNumber(task.id), _is_active: 0 as const })),
+    ];
   }
 
   async getTasksByProject(projectId: number): Promise<KanboardTask[]> {

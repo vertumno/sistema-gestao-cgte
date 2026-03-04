@@ -100,6 +100,9 @@ function shiftMonth(year: number, month: number, offset: number): { year: number
 }
 
 function resolveStatus(task: KanboardTask): DashboardTaskItem["status"] {
+  // _is_active=0 significa que foi buscada como fechada (status_id=0) — sempre finalizada
+  if (task._is_active === 0) return "finalizada";
+
   const normalizedColumn = normalizeText(task.column_name ?? "");
   const columnId = parseNumeric(task.column_id);
 
