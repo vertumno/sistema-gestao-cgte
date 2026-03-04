@@ -225,7 +225,10 @@ export function buildTaskItems(
   const categoryNameById = new Map(categories.map((category) => [parseNumeric(category.id), category.name]));
   const membersById = new Map(teamMembers.map((member) => [member.userId.toLowerCase(), member]));
 
-  return tasks.map((task) => {
+  return tasks.flatMap((task) => {
+    // Tarefas congeladas não são trabalho ativo — excluir do dashboard
+    if (normalizeText(task.column_name ?? "").includes("congelado")) return [];
+
     const categoryId = parseNumeric(task.category_id);
     const kanboardCategoryName = categoryNameById.get(categoryId);
     const taxonomyCategory =
@@ -238,7 +241,7 @@ export function buildTaskItems(
     const status = resolveStatus(task);
     const date = status === "finalizada" ? parseUnixDate(task.date_completed) : resolveTaskDate(task);
 
-    return {
+    return [{
       id: parseNumeric(task.id),
       title: task.title,
       categoryId: taxonomyCategory?.categoryId ?? categoryId,
@@ -248,20 +251,13 @@ export function buildTaskItems(
       area: (taxonomyCategory?.area ?? "Sem area") as DashboardTaskItem["area"],
       status,
       completedAt: date ? date.toISOString() : null
-    };
+    }];
   });
 }
 
-// Tarefas históricas anteriores a esta data são ignoradas (decisão: começamos limpo em 2026)
-const OPEN_TASKS_CUTOFF = new Date(2026, 0, 1); // 01/01/2026
-
 export function filterByPeriod(tasks: DashboardTaskItem[], range: DateRange): DashboardTaskItem[] {
   return tasks.filter((task) => {
-    if (task.status !== "finalizada") {
-      // Tarefas abertas: sempre aparecem, mas apenas as criadas/modificadas a partir de 2026
-      const date = task.completedAt ? new Date(task.completedAt) : null;
-      return date !== null && date >= OPEN_TASKS_CUTOFF;
-    }
+    if (task.status !== "finalizada") return true; // tarefas abertas (não congeladas) sempre aparecem
     const date = task.completedAt ? new Date(task.completedAt) : null;
     return isWithinRange(date, range);
   });
