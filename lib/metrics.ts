@@ -254,6 +254,7 @@ export function buildTaskItems(
 
 export function filterByPeriod(tasks: DashboardTaskItem[], range: DateRange): DashboardTaskItem[] {
   return tasks.filter((task) => {
+    if (task.status !== "finalizada") return true; // tarefas abertas sempre aparecem
     const date = task.completedAt ? new Date(task.completedAt) : null;
     return isWithinRange(date, range);
   });
