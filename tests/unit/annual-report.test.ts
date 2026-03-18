@@ -16,7 +16,7 @@ describe("annual-report", () => {
         {
           id: 1,
           title: "T1",
-          category_id: 1,
+          category_id: 151,
           owner_id: "3672522",
           column_name: "Finalizado",
           date_completed: toUnix("2026-03-10")
@@ -24,7 +24,7 @@ describe("annual-report", () => {
         {
           id: 2,
           title: "T2",
-          category_id: 10,
+          category_id: 160,
           owner_id: "1896405",
           column_name: "Finalizado",
           date_completed: toUnix("2026-06-10")

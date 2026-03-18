@@ -25,7 +25,7 @@ describe("PersonTable", () => {
             {
               id: 99,
               title: "Design de banner",
-              categoryId: 1,
+              categoryId: 151,
               categoryName: "Comunicacao Visual",
               userId: "3672522",
               userName: "Juliana",

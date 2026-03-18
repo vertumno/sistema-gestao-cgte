@@ -8,7 +8,7 @@ describe("CategoryChart", () => {
       <CategoryChart
         categories={[
           {
-            categoryId: 1,
+            categoryId: 151,
             categoryName: "Comunicacao Visual",
             total: 2,
             finalizadas: 1,

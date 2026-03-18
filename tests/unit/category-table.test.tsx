@@ -11,7 +11,7 @@ describe("CategoryTable", () => {
       <CategoryTable
         categories={[
           {
-            categoryId: 1,
+            categoryId: 151,
             categoryName: "Comunicacao Visual",
             total: 1,
             finalizadas: 1,
@@ -20,11 +20,11 @@ describe("CategoryTable", () => {
           }
         ]}
         tasksByCategory={{
-          "1": [
+          "151": [
             {
               id: 101,
               title: "Card 1",
-              categoryId: 1,
+              categoryId: 151,
               categoryName: "Comunicacao Visual",
               userId: "3672522",
               userName: "Juliana",

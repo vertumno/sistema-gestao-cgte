@@ -26,7 +26,7 @@ describe("report-generator", () => {
       {
         id: 1,
         title: "Atualizar MOOC",
-        category_id: 6,
+        category_id: 156,
         owner_id: "3672522",
         column_name: "Finalizado",
         date_completed: toUnix("2026-04-10")
@@ -53,7 +53,7 @@ describe("report-generator", () => {
       {
         id: 1,
         title: "Task A",
-        category_id: 1,
+        category_id: 151,
         owner_id: "3672522",
         column_name: "Finalizado",
         date_completed: toUnix("2026-04-10")
@@ -61,7 +61,7 @@ describe("report-generator", () => {
       {
         id: 2,
         title: "Task B",
-        category_id: 1,
+        category_id: 151,
         owner_id: "1163935",
         column_name: "Finalizado",
         date_completed: toUnix("2026-04-11")

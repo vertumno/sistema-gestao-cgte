@@ -1,13 +1,13 @@
 {
   "categorias": [
     {
-      "categoryId": 1,
+      "categoryId": 151,
       "categoryName": "Comunicacao Visual",
       "area": "Design",
       "entregasPGD": ["conteudo-comunicacao-visual-elaborado"]
     },
     {
-      "categoryId": 2,
+      "categoryId": 152,
       "categoryName": "Programacao Visual Educacional",
       "area": "Design",
       "entregasPGD": [
@@ -17,49 +17,49 @@
       ]
     },
     {
-      "categoryId": 3,
+      "categoryId": 153,
       "categoryName": "Conteudo Digital",
       "area": "Transversal",
       "entregasPGD": ["informacao-sistema-institucional-atualizada"]
     },
     {
-      "categoryId": 4,
+      "categoryId": 154,
       "categoryName": "Interface Digital",
       "area": "Design",
       "entregasPGD": ["atualizacao-interface-digital-realizada", "repositorio-livros-atualizado"]
     },
     {
-      "categoryId": 5,
+      "categoryId": 155,
       "categoryName": "Formacao e Capacitacao",
       "area": "Transversal",
       "entregasPGD": ["formacao-ministrada"]
     },
     {
-      "categoryId": 6,
+      "categoryId": 156,
       "categoryName": "MOOC",
       "area": "Design",
       "entregasPGD": ["checklist-curso-mooc-realizada", "curso-mooc-atualizado", "curso-mooc-traduzido"]
     },
     {
-      "categoryId": 7,
+      "categoryId": 157,
       "categoryName": "Conteudo Educacional",
       "area": "Transversal",
       "entregasPGD": ["tutorial-criado", "podcast-publicado"]
     },
     {
-      "categoryId": 8,
+      "categoryId": 158,
       "categoryName": "Inteligencia Artificial",
       "area": "Transversal",
       "entregasPGD": ["acao-inteligencia-artificial-realizada"]
     },
     {
-      "categoryId": 9,
+      "categoryId": 159,
       "categoryName": "Producao Cientifica",
       "area": "Transversal",
       "entregasPGD": ["producao-cientifica-desenvolvida"]
     },
     {
-      "categoryId": 10,
+      "categoryId": 160,
       "categoryName": "Producao Audiovisual",
       "area": "Audiovisual",
       "entregasPGD": [
@@ -69,13 +69,13 @@
       ]
     },
     {
-      "categoryId": 11,
+      "categoryId": 161,
       "categoryName": "Evento / Transmissao",
       "area": "Audiovisual",
       "entregasPGD": ["evento-transmitido", "conselho-superior-transmitido"]
     },
     {
-      "categoryId": 12,
+      "categoryId": 162,
       "categoryName": "Libras Traducao",
       "area": "Libras",
       "entregasPGD": [
@@ -85,13 +85,13 @@
       ]
     },
     {
-      "categoryId": 13,
+      "categoryId": 163,
       "categoryName": "Libras Interpretacao",
       "area": "Libras",
       "entregasPGD": ["evento-interpretado-libras", "interpretacao-evento-externo-realizada"]
     },
     {
-      "categoryId": 14,
+      "categoryId": 164,
       "categoryName": "Acessibilidade",
       "area": "Libras",
       "entregasPGD": [
@@ -101,7 +101,7 @@
       ]
     },
     {
-      "categoryId": 15,
+      "categoryId": 165,
       "categoryName": "Comissao",
       "area": "Transversal",
       "entregasPGD": [
@@ -114,19 +114,19 @@
       ]
     },
     {
-      "categoryId": 16,
+      "categoryId": 166,
       "categoryName": "Gestao / PGD",
       "area": "Gestao",
       "entregasPGD": ["pgd-trimestral-elaborado"]
     },
     {
-      "categoryId": 17,
+      "categoryId": 59,
       "categoryName": "Colaboracao Institucional",
       "area": "Transversal",
       "entregasPGD": ["colaboracao-tecnica-outros-campi-ou-instituicoes"]
     },
     {
-      "categoryId": 18,
+      "categoryId": 167,
       "categoryName": "Demanda Extraordinaria",
       "area": "Uso controlado",
       "entregasPGD": ["sem-entrega-fixa-vinculada-caso-a-caso"]

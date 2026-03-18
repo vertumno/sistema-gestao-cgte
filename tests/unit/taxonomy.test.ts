@@ -16,13 +16,13 @@ describe("taxonomy", () => {
   });
 
   it("gets entregas by category id", async () => {
-    const entregas = await getEntregasPGD(1);
+    const entregas = await getEntregasPGD(151);
     expect(entregas.length).toBeGreaterThan(0);
   });
 
   it("gets categories by entrega id", async () => {
     const categorias = await getCategoriasByEntrega("pgd-trimestral-elaborado");
-    expect(categorias).toContain(16);
+    expect(categorias).toContain(166);
   });
 
   it("returns empty array for non-existent category", async () => {
