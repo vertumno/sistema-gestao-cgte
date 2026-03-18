@@ -1,9 +1,12 @@
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 import { CategoryChart } from "@/components/dashboard/category-chart";
 
 describe("CategoryChart", () => {
-  it("renders category labels and values", () => {
+  it("renders accordion header and expands to show categories", async () => {
+    const user = userEvent.setup();
+
     render(
       <CategoryChart
         categories={[
@@ -18,6 +21,11 @@ describe("CategoryChart", () => {
         ]}
       />
     );
+
+    expect(screen.getByText("Tarefas Concluidas por Categoria")).toBeInTheDocument();
+    expect(screen.getByText(/1 concluida/)).toBeInTheDocument();
+
+    await user.click(screen.getByRole("button"));
 
     expect(screen.getByText("Comunicacao Visual")).toBeInTheDocument();
     expect(screen.getByText("1")).toBeInTheDocument();
