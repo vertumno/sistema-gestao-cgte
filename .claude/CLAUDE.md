@@ -1,19 +1,19 @@
-# Synkra AIOS Development Rules for Claude Code
+# Synkra AIOX Development Rules for Claude Code
 
-You are working with Synkra AIOS, an AI-Orchestrated System for Full Stack Development.
+You are working with Synkra AIOX, an AI-Orchestrated System for Full Stack Development.
 
-<!-- AIOS-MANAGED-START: core-framework -->
+<!-- AIOX-MANAGED-START: core-framework -->
 ## Core Framework Understanding
 
-Synkra AIOS is a meta-framework that orchestrates AI agents to handle complex development workflows. Always recognize and work within this architecture.
-<!-- AIOS-MANAGED-END: core-framework -->
+Synkra AIOX is a meta-framework that orchestrates AI agents to handle complex development workflows. Always recognize and work within this architecture.
+<!-- AIOX-MANAGED-END: core-framework -->
 
-<!-- AIOS-MANAGED-START: agent-system -->
+<!-- AIOX-MANAGED-START: agent-system -->
 ## Agent System
 
 ### Agent Activation
 - Agents are activated with @agent-name syntax: @dev, @qa, @architect, @pm, @po, @sm, @analyst
-- The master agent is activated with @aios-master
+- The master agent is activated with @aiox-master
 - Agent commands use the * prefix: *help, *create-story, *task, *exit
 
 ### Agent Context
@@ -21,7 +21,7 @@ When an agent is active:
 - Follow that agent's specific persona and expertise
 - Use the agent's designated workflow patterns
 - Maintain the agent's perspective throughout the interaction
-<!-- AIOS-MANAGED-END: agent-system -->
+<!-- AIOX-MANAGED-END: agent-system -->
 
 ## Development Methodology
 
@@ -45,11 +45,11 @@ When an agent is active:
 - Add tests for new features
 - Test edge cases and error scenarios
 
-<!-- AIOS-MANAGED-START: framework-structure -->
-## AIOS Framework Structure
+<!-- AIOX-MANAGED-START: framework-structure -->
+## AIOX Framework Structure
 
 ```
-aios-core/
+aiox-core/
 ├── agents/         # Agent persona definitions (YAML/Markdown)
 ├── tasks/          # Executable task workflows
 ├── workflows/      # Multi-step workflow definitions
@@ -63,7 +63,7 @@ docs/
 ├── architecture/   # System architecture documentation
 └── guides/         # User and developer guides
 ```
-<!-- AIOS-MANAGED-END: framework-structure -->
+<!-- AIOX-MANAGED-END: framework-structure -->
 
 ## Workflow Execution
 
@@ -118,8 +118,8 @@ try {
 - Use for PR creation: `gh pr create`
 - Check org access: `gh api user/memberships`
 
-<!-- AIOS-MANAGED-START: aios-patterns -->
-## AIOS-Specific Patterns
+<!-- AIOX-MANAGED-START: aiox-patterns -->
+## AIOX-Specific Patterns
 
 ### Working with Templates
 ```javascript
@@ -142,7 +142,7 @@ const story = await loadStory(storyId);
 story.updateTask(taskId, { status: 'completed' });
 await story.save();
 ```
-<!-- AIOS-MANAGED-END: aios-patterns -->
+<!-- AIOX-MANAGED-END: aiox-patterns -->
 
 ## Environment Setup
 
@@ -153,14 +153,14 @@ await story.save();
 - Your preferred package manager (npm/yarn/pnpm)
 
 ### Configuration Files
-- `.aios/config.yaml` - Framework configuration
+- `.aiox/config.yaml` - Framework configuration
 - `.env` - Environment variables
-- `aios.config.js` - Project-specific settings
+- `aiox.config.js` - Project-specific settings
 
-<!-- AIOS-MANAGED-START: common-commands -->
+<!-- AIOX-MANAGED-START: common-commands -->
 ## Common Commands
 
-### AIOS Master Commands
+### AIOX Master Commands
 - `*help` - Show available commands
 - `*create-story` - Create new story
 - `*task {name}` - Execute specific task
@@ -171,18 +171,18 @@ await story.save();
 - `npm test` - Run tests
 - `npm run lint` - Check code style
 - `npm run build` - Build project
-<!-- AIOS-MANAGED-END: common-commands -->
+<!-- AIOX-MANAGED-END: common-commands -->
 
 ## Debugging
 
 ### Enable Debug Mode
 ```bash
-export AIOS_DEBUG=true
+export AIOX_DEBUG=true
 ```
 
 ### View Agent Logs
 ```bash
-tail -f .aios/logs/agent.log
+tail -f .aiox/logs/agent.log
 ```
 
 ### Trace Workflow Execution
@@ -228,4 +228,4 @@ npm run trace -- workflow-name
 - Document breaking changes prominently
 
 ---
-*Synkra AIOS Claude Code Configuration v2.0*
+*Synkra AIOX Claude Code Configuration v3.0*

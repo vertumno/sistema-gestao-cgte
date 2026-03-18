@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { SquareKanban, BarChart3, FileBarChart, ArrowLeft } from "lucide-react";
+import { SquareKanban, BarChart3, FileBarChart, Settings, ArrowLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { LucideIcon } from "lucide-react";
 
@@ -15,8 +15,9 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { href: "/kanboard-helper", label: "Kanboard Task Helper", icon: SquareKanban },
-  { href: "/dashboard",     label: "Dashboard de Gestão", icon: BarChart3 },
-  { href: "/relatorio-pgd", label: "PGD Helper",          icon: FileBarChart }
+  { href: "/dashboard",       label: "Dashboard de Gestão",  icon: BarChart3 },
+  { href: "/relatorio-pgd",   label: "PGD Helper",           icon: FileBarChart },
+  { href: "/configuracoes",   label: "Configurações",        icon: Settings }
 ];
 
 type SidebarProps = {

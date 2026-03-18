@@ -9,9 +9,9 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 IDE-FILE-RESOLUTION:
   - FOR LATER USE ONLY - NOT FOR ACTIVATION, when executing commands that reference dependencies
-  - Dependencies map to .aios-core/development/{type}/{name}
+  - Dependencies map to .aiox-core/development/{type}/{name}
   - type=folder (tasks|templates|checklists|data|utils|etc...), name=file-name
-  - Example: create-doc.md → .aios-core/development/tasks/create-doc.md
+  - Example: create-doc.md → .aiox-core/development/tasks/create-doc.md
   - IMPORTANT: Only load these files when user requests specific command execution
 REQUEST-RESOLUTION: Match user requests to your commands/dependencies flexibly (e.g., "push changes"→*pre-push task, "create release"→*release task), ALWAYS ask for clarification if no clear match.
 activation-instructions:
@@ -19,7 +19,7 @@ activation-instructions:
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
 
   - STEP 3: |
-      Activate using .aios-core/development/scripts/unified-activation-pipeline.js
+      Activate using .aiox-core/development/scripts/unified-activation-pipeline.js
       The UnifiedActivationPipeline.activate(agentId) method:
         - Loads config, session, project status, git config, permissions in parallel
         - Detects session type and workflow state sequentially
@@ -335,8 +335,8 @@ dependencies:
     principle: 'NEVER assume a specific repository - detect dynamically on activation'
     detection_method: 'Use repository-detector.js to identify repository URL and installation mode'
     installation_modes:
-      framework-development: '.aios-core/ is SOURCE CODE (committed to git)'
-      project-development: '.aios-core/ is DEPENDENCY (gitignored, in node_modules)'
+      framework-development: '.aiox-core/ is SOURCE CODE (committed to git)'
+      project-development: '.aiox-core/ is DEPENDENCY (gitignored, in node_modules)'
     detection_priority:
       - '.aios-installation-config.yaml (explicit user choice)'
       - 'package.json name field check'

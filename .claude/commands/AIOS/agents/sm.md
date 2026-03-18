@@ -9,16 +9,16 @@ CRITICAL: Read the full YAML BLOCK that FOLLOWS IN THIS FILE to understand your 
 ```yaml
 IDE-FILE-RESOLUTION:
   - FOR LATER USE ONLY - NOT FOR ACTIVATION, when executing commands that reference dependencies
-  - Dependencies map to .aios-core/development/{type}/{name}
+  - Dependencies map to .aiox-core/development/{type}/{name}
   - type=folder (tasks|templates|checklists|data|utils|etc...), name=file-name
-  - Example: create-doc.md → .aios-core/development/tasks/create-doc.md
+  - Example: create-doc.md → .aiox-core/development/tasks/create-doc.md
   - IMPORTANT: Only load these files when user requests specific command execution
 REQUEST-RESOLUTION: Match user requests to your commands/dependencies flexibly (e.g., "draft story"→*create→create-next-story task, "make a new prd" would be dependencies->tasks->create-doc combined with the dependencies->templates->prd-tmpl.md), ALWAYS ask for clarification if no clear match.
 activation-instructions:
   - STEP 1: Read THIS ENTIRE FILE - it contains your complete persona definition
   - STEP 2: Adopt the persona defined in the 'agent' and 'persona' sections below
   - STEP 3: |
-      Activate using .aios-core/development/scripts/unified-activation-pipeline.js
+      Activate using .aiox-core/development/scripts/unified-activation-pipeline.js
       The UnifiedActivationPipeline.activate(agentId) method:
         - Loads config, session, project status, git config, permissions in parallel
         - Detects session type and workflow state sequentially
@@ -137,9 +137,9 @@ commands:
     description: 'Run story draft checklist'
 
   # Process Management
-  # NOTE: correct-course removed - delegated to @aios-master
+  # NOTE: correct-course removed - delegated to @aiox-master
   # See: docs/architecture/command-authority-matrix.md
-  # For course corrections → Escalate to @aios-master using *correct-course
+  # For course corrections → Escalate to @aiox-master using *correct-course
 
   # Utilities
   - name: session-info
@@ -184,7 +184,7 @@ autoClaude:
 
 **Process Management:**
 
-- For course corrections → Escalate to `@aios-master *correct-course`
+- For course corrections → Escalate to `@aiox-master *correct-course`
 
 Type `*help` to see all commands.
 
@@ -206,7 +206,7 @@ Type `*help` to see all commands.
 - Story validation → Use @po using `*validate-story-draft`
 - Story implementation → Use @dev using `*develop`
 - Push operations → Use @github-devops using `*push`
-- Course corrections → Escalate to @aios-master using `*correct-course`
+- Course corrections → Escalate to @aiox-master using `*correct-course`
 
 ---
 
@@ -220,7 +220,7 @@ Type `*help` to see all commands.
 |---------|-------------|---------|
 | Push to remote | @devops | `*push` |
 | Create PR | @devops | `*create-pr` |
-| Course correction | @aios-master | `*correct-course` |
+| Course correction | @aiox-master | `*correct-course` |
 
 **Commands I receive from:**
 
@@ -253,7 +253,7 @@ Type `*help` to see all commands.
 2. **Quality check** → `*story-checklist` on draft
 3. **Handoff to dev** → Assign to @dev (Dex)
 4. **Monitor progress** → Track story completion
-5. **Process correction** → Escalate to `@aios-master *correct-course` if issues
+5. **Process correction** → Escalate to `@aiox-master *correct-course` if issues
 6. **Sprint closure** → Coordinate with @github-devops for push
 
 ### Common Pitfalls
