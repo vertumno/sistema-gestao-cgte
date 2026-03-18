@@ -104,17 +104,15 @@ function resolveStatus(task: KanboardTask): DashboardTaskItem["status"] {
   if (task._is_active === 0) return "finalizada";
 
   const normalizedColumn = normalizeText(task.column_name ?? "");
-  const columnId = parseNumeric(task.column_id);
 
-  if (normalizedColumn.includes("finalizado") || columnId === 4) {
+  if (normalizedColumn.includes("finalizado")) {
     return "finalizada";
   }
 
   if (
     normalizedColumn.includes("andamento") ||
     normalizedColumn.includes("autorizado") ||
-    columnId === 2 ||
-    columnId === 3
+    normalizedColumn.includes("aprovacao")
   ) {
     return "emAndamento";
   }

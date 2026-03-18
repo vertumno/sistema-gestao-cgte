@@ -152,14 +152,30 @@ class KanboardClient {
     return parseInt(id, 10);
   }
 
+  async getColumns(): Promise<{ id: number; title: string }[]> {
+    const result = await this.call<{ id: number | string; title: string }[]>("getColumns", { project_id: this.projectId });
+    return result.map((col) => ({ id: parseNumber(col.id), title: col.title }));
+  }
+
   async getAllTasks(): Promise<KanboardTask[]> {
-    const [open, closed] = await Promise.all([
+    const [open, closed, columns] = await Promise.all([
       this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 1 }),
       this.call<KanboardTask[]>("getAllTasks", { project_id: this.projectId, status_id: 0 }),
+      this.getColumns(),
     ]);
+
+    const columnNameById = new Map(columns.map((col) => [col.id, col.title]));
+
+    const enrich = (task: KanboardTask, isActive: 0 | 1) => ({
+      ...task,
+      id: parseNumber(task.id),
+      column_name: columnNameById.get(parseNumber(task.column_id)) ?? task.column_name,
+      _is_active: isActive as 0 | 1,
+    });
+
     return [
-      ...open.map((task) => ({ ...task, id: parseNumber(task.id), _is_active: 1 as const })),
-      ...closed.map((task) => ({ ...task, id: parseNumber(task.id), _is_active: 0 as const })),
+      ...open.map((task) => enrich(task, 1)),
+      ...closed.map((task) => enrich(task, 0)),
     ];
   }
 
